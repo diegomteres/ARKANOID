@@ -7,5 +7,6 @@ public:
 
 	Ladrillos(void);
 	virtual ~Ladrillos(void);
+	//HOLA
 };
 
