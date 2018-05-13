@@ -1,0 +1,24 @@
+﻿Compilación iniciada a las 13/05/2018 17:01:58.
+     1>Proyecto "C:\Users\diego\Desktop\Trabajo Ana\ARKANOID-ANNA\ARKANOID-ANNA\ARKANOID-Diego\ARKANOID\Arkanoid.vcxproj" en el nodo 2 (Build destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Ilib /Isrc /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"tmp\Debug\\" /Fd"tmp\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Arkanoid.cpp
+         Arkanoid.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\diego\Desktop\Trabajo Ana\ARKANOID-ANNA\ARKANOID-ANNA\ARKANOID-Diego\ARKANOID\bin\Arkanoid.exe" /INCREMENTAL /NOLOGO /LIBPATH:lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\diego\Desktop\Trabajo Ana\ARKANOID-ANNA\ARKANOID-ANNA\ARKANOID-Diego\ARKANOID\bin\Arkanoid.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\diego\Desktop\Trabajo Ana\ARKANOID-ANNA\ARKANOID-ANNA\ARKANOID-Diego\ARKANOID\bin\Arkanoid.lib" /MACHINE:X86 tmp\Debug\Barra.obj
+         tmp\Debug\Bordes.obj
+         tmp\Debug\Esfera.obj
+         tmp\Debug\Interaccion.obj
+         tmp\Debug\Jugador.obj
+         tmp\Debug\Ladrillos.obj
+         tmp\Debug\Mundo.obj
+         tmp\Debug\Arkanoid.obj
+         tmp\Debug\Objeto.obj
+         tmp\Debug\ObjetoMovil.obj
+         tmp\Debug\Pared.obj
+         tmp\Debug\Vector2D.obj
+         Arkanoid.vcxproj -> C:\Users\diego\Desktop\Trabajo Ana\ARKANOID-ANNA\ARKANOID-ANNA\ARKANOID-Diego\ARKANOID\bin\Arkanoid.exe
+     1>Compilación del proyecto terminada "C:\Users\diego\Desktop\Trabajo Ana\ARKANOID-ANNA\ARKANOID-ANNA\ARKANOID-Diego\ARKANOID\Arkanoid.vcxproj" (Build destinos).
+
+Compilación correcta.
+
+Tiempo transcurrido 00:00:01.40
