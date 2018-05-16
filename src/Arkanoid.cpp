@@ -7,6 +7,15 @@
 
 Mundo mundo;
 
+//Keyboard
+#define KEY_LEFT 100
+#define KEY_RIGHT 102
+#define KEY_ESCAPE 27
+
+//State del cursor key
+static int left = 0;
+static int right = 0;
+
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
@@ -14,7 +23,11 @@ void OnDraw(void);										//esta funcion sera llamada para dibujar
 void OnTimer(int value);								//esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y);	//cuando se pulse una tecla	
 void onSpecialKeyboardDown(int key, int x, int y) ;
-
+void onSpecialKeyboardDown2(int key, int x, int y) ;
+void glutSpecialUpFunc(void);
+/*void keyboard(unsigned char, int, int);
+void keyPress(int,int,int);
+*/void keyRelease(int,int,int);
 int main(int argc,char* argv[])
 {
 	//Inicializar el gestor de ventanas GLUT
@@ -36,8 +49,10 @@ int main(int argc,char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25,OnTimer,0);		//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	
-	
+	//Keyboard
+	glutKeyboardFunc(OnKeyboardDown);
 	glutSpecialFunc(onSpecialKeyboardDown);
+	glutSpecialUpFunc(onSpecialKeyboardDown2);
 
 	mundo.Inicializa();
 
@@ -64,10 +79,17 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-
+	mundo.teclaEspecial(key);
 	glutPostRedisplay();
 }
-
+void onSpecialKeyboardDown(int key, int x, int y)
+{
+	mundo.teclaEspecial(key);
+}
+void onSpecialKeyboardDown2(int key, int x, int y)
+{
+	mundo.teclaEspecial2(key);
+}
 void OnTimer(int value)
 {
 //poner aqui el código de animacion
@@ -80,7 +102,18 @@ void OnTimer(int value)
 	glutPostRedisplay();
 }
 
-void onSpecialKeyboardDown(int key, int x, int y) 
-{ 
-	mundo.teclaEspecial(key); 
+void keyRelease(int key, int x,int y)
+{
+	 switch (key) {
+        case KEY_LEFT:
+			mundo.deslizante.velocidad.x = 0;
+            break;
+ 
+        case KEY_RIGHT:
+			mundo.deslizante.velocidad.x = 0;
+            break;
+ 
+        default:
+            break;
+    }
 }
