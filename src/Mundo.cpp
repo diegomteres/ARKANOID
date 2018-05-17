@@ -1,6 +1,10 @@
 #include "Mundo.h"
 #include "glut.h"
-#include"Interaccion.h"
+#include "Interaccion.h"
+#include "Barra.h"
+#include"Ladrillos.h"
+#include"ListaLadrillos.h"
+#include"Esfera.h"
 
 void Mundo::Dibuja()
 {
@@ -34,9 +38,11 @@ void Mundo::Dibuja()
 	}
 
 	//Dibujar
+	ladrillos.dibuja();
 	esfera.Dibuja();
 	bordes.Dibuja();
 	deslizante.Dibuja();
+//	amarillo1.Dibuja();
 	player.vidas(player.vida);
 	if(player.gameover = true)
 		gameover();
@@ -50,6 +56,7 @@ void Mundo::Mover()
 	Interaccion::rebote(esfera, bordes);
 	Interaccion::rebote(deslizante, bordes);
 	Interaccion::rebote(esfera, deslizante);
+	Interaccion::rebote(esfera, ladrillos);
 	if(Interaccion::rebote(esfera, bordes.suelo) == true)
 	{
 		esfera.posicion.x=50.0f;
@@ -73,8 +80,20 @@ void Mundo::Inicializa()
 	esfera.setVel(0.0f,40.0f);
 
 	deslizante.SetColor(255,0,0);
-	deslizante.SetPos(45.0f,2.0f,55.0f,1.0);	//Unico, cambio setpos de x e y , no limites
+	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
 	
+	Ladrillos *e1=new Ladrillos(55.0f,5.0f,65.0f,2.0f);
+	e1->SetColor(0,0,255);
+	ladrillos.agregar(e1); //esfera
+
+	Ladrillos *e2=new Ladrillos(25.0f,9.0f,35.0f,6.0f);
+	e2->SetColor(0,0,255);
+	ladrillos.agregar(e2); //esfera2
+/*
+	amarillo1.SetColor(0,255,0);
+	amarillo1.SetPos(45.0f,7.0f,55.0f,5.0);
+*/
+
 	player.vida = '3';
 	player.gameover = false;
 

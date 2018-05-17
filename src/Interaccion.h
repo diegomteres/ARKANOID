@@ -1,6 +1,7 @@
 #include "Bordes.h"
 #include "Esfera.h"
 #include "Barra.h"
+#include "ListaLadrillos.h"
 
 #pragma once
 class Interaccion
@@ -12,4 +13,5 @@ public:
 	static void rebote(Esfera &e, Bordes b);
 	static void rebote(Barra &b, Bordes c);
 	static void rebote(Esfera &e, Barra &b);
+	static void rebote(Esfera &e, ListaLadrillos lista);
 };

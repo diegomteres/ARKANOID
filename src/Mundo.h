@@ -3,6 +3,7 @@
 #include "Esfera.h"
 #include "Ladrillos.h"
 #include "Jugador.h"
+#include"ListaLadrillos.h"
 
 class Mundo
 {
@@ -12,6 +13,7 @@ public:
 	Pared fin;
 	Esfera esfera;
 	Barra deslizante;
+	ListaLadrillos ladrillos;
 	Ladrillos rojo4;
 	Ladrillos azul3;
 	Ladrillos verde2;

@@ -11,6 +11,8 @@ public:
 	virtual ~Esfera(void);
 	void Dibuja();
 	void SetRadio(float);
+
+
 private:
 
 	float radio;

@@ -1,6 +1,8 @@
 #include "Interaccion.h"
 #include "Bordes.h"
 #include "Esfera.h"
+#include"ListaLadrillos.h"
+#include"Barra.h"
 
 
 Interaccion::Interaccion()
@@ -43,6 +45,7 @@ void Interaccion::rebote(Barra &b, Bordes c) //CORREGIDA YA PARA NO TENER EN CUE
 	if (b.posicion.x<xmin)b.posicion.x = xmin;
 }
 		//todavia no funciona, 
+
 void Interaccion::rebote(Esfera &e, Barra &b)
 {
 	Vector2D dir;
@@ -55,4 +58,10 @@ void Interaccion::rebote(Esfera &e, Barra &b)
 		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
 		e.posicion = e.posicion - dir * dif; 
 	}
+}
+
+void Interaccion::rebote(Esfera &e, ListaLadrillos lista)
+{
+	for(int i=0;i<lista.numero;i++)
+		Interaccion::rebote(e,*(lista[i]));
 }

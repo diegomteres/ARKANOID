@@ -30,14 +30,14 @@ float Pared::distancia(Vector2D punto, Vector2D *direccion)
 	float valor=u*v; 
 	float distancia=0; 
 
-if (valor<0)   
-	dir = u; 
-else if (valor>longitud)  
-	dir = (punto - limite2);  
-else
-	dir = u - v * valor;  
-distancia = dir.modulo(); 
-if (direccion != 0) //si nos dan un vector…  
-	*direccion=dir.unitario();  
-return distancia;
+	if (valor<0)   
+		dir = u; 
+	else if (valor>longitud)  
+		dir = (punto - limite2);  
+	else
+		dir = u - v * valor;  
+	distancia = dir.modulo(); 
+	if (direccion != 0) //si nos dan un vector…  
+		*direccion=dir.unitario();  
+	return distancia;
 }
