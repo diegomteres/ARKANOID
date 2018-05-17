@@ -92,13 +92,24 @@ void Mundo::teclaEspecial(unsigned char key)
 			case GLUT_KEY_RIGHT:  
 				deslizante.setVel (25.0f, 0.0f);  
 					break;	
-			case GLUT_KEY_DOWN:
-				deslizante.setVel(0.0f,0.0f);
-					break;
 		}
 } 
+
+void Mundo::teclaEspecial2(unsigned char key)
+{
+	switch(key)
+	{
+	case GLUT_KEY_LEFT:
+		deslizante.setVel (0,0);
+			break;
+	case GLUT_KEY_RIGHT:
+		deslizante.setVel (0,0);
+			break;
+	}
+}
 
 void Mundo::gameover()
 {
 //	fin.Dibuja();
 }
+
