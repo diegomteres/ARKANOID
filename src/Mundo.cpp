@@ -76,19 +76,23 @@ void Mundo::Inicializa()
 	pulsado=false;
 	esfera.SetColor(0,255,0);
 	esfera.SetPos(50.0f,5.0f);
-	esfera.SetRadio(1.0f);
+	esfera.SetRadio(5.0f);
 	esfera.setVel(0.0f,40.0f);
 
 	deslizante.SetColor(255,0,0);
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
 	
-	Ladrillos *e1=new Ladrillos(55.0f,5.0f,65.0f,2.0f);
-	e1->SetColor(0,0,255);
-	ladrillos.agregar(e1); //esfera
+	Ladrillos *l1=new Ladrillos(55.0f,5.0f,65.0f,2.0f);
+	l1->SetColor(0,0,255);
+	ladrillos.agregar(l1); 
 
-	Ladrillos *e2=new Ladrillos(25.0f,9.0f,35.0f,6.0f);
-	e2->SetColor(0,0,255);
-	ladrillos.agregar(e2); //esfera2
+	Ladrillos *l2=new Ladrillos(25.0f,9.0f,35.0f,6.0f);
+	l2->SetColor(0,255,0);
+	ladrillos.agregar(l2); 
+
+	Ladrillos *l3=new Ladrillos(5.0f,16.0f,15.0f,13.0f);
+	l3->SetColor(255,0,0);
+	ladrillos.agregar(l3); 
 /*
 	amarillo1.SetColor(0,255,0);
 	amarillo1.SetPos(45.0f,7.0f,55.0f,5.0);
