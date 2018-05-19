@@ -59,14 +59,21 @@ void Mundo::Mover()
 	Interaccion::rebote(deslizante, bordes);
 	Interaccion::rebote(disparos, deslizante);
 	Interaccion::rebote(disparos, ladrillos);
-for(int i=0;i<disparos.numero;i++){
-	if(Interaccion::rebote(*disparos[i], bordes.suelo) == true)
+
+	for(int i=0;i<disparos.numero;i++){				////EL PROBLEMA DE QUE NO SE ROMPAN LOS LADRILLOS ESTÁ AQUÍ EN LOS ÍNDICES 
+		for(int j=0;j<ladrillos.numero;j++){		////hAY QUE REVISARLO PUES
+			if(Interaccion::rebote(*disparos[i], *ladrillos[j]))	ladrillos.eliminar(j);
+		}
+	}
+for(int j=0;j<disparos.numero;j++){
+	if(Interaccion::rebote(*disparos[j], bordes.suelo) == true)
 	{
 		disparos.destruirContenido();
 		player.vida-=1;
 	}
 //	if(player.vida=='0')
 //		player.gameover = true;
+
 }
 }
 
@@ -78,7 +85,6 @@ void Mundo::Inicializa()
 	esfera.SetRadio(1.0f);
 	esfera.setVel(0.0f,40.0f);
 */
-
 
 	deslizante.SetColor(255,0,0);
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
@@ -150,6 +156,8 @@ void Mundo::tecla(unsigned char key)
 
 				break;
 			}
+		case 'r': Inicializa();
+					break;
 	}
 
 }

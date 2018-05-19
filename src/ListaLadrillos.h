@@ -12,6 +12,9 @@ public:
 	int numero;
 	Ladrillos* operator[] (int index);
 	bool agregar(Ladrillos *e);
+//	void eliminar(Ladrillos *e);
+	void eliminar(int index);
+
 private:
 	Ladrillos * lista[MAX_LADRILLOS];
 	

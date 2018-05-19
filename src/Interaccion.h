@@ -16,10 +16,10 @@ public:
 
 
 	static void rebote(Barra &b, Bordes c);
-	static void rebote(Esfera &e, Barra &b);
+	static bool rebote(Esfera &e, Barra &b);
 	static void rebote(ListaDisparos disparos, Barra &b);  ///// HECHA
 
 	static void rebote(Esfera &e, ListaLadrillos lista);
-	static void rebote(ListaDisparos disparos, ListaLadrillos lista);  ////// 
+	static bool rebote(ListaDisparos disparos, ListaLadrillos lista);  ////// 
 	
 };

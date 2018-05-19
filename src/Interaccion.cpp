@@ -58,7 +58,7 @@ void Interaccion::rebote(Barra &b, Bordes c) //CORREGIDA YA PARA NO TENER EN CUE
 }
 		//todavia no funciona, 
 
-void Interaccion::rebote(Esfera &e, Barra &b)
+bool Interaccion::rebote(Esfera &e, Barra &b)
 {
 	Vector2D dir;
 	float dif = b.distancia(e.posicion, &dir) - e.radio; ;
@@ -69,7 +69,9 @@ void Interaccion::rebote(Esfera &e, Barra &b)
 		Vector2D v_inicial = e.velocidad; 
 		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
 		e.posicion = e.posicion - dir * dif; 
+		return true;
 	}
+	return false;
 }
 
 void Interaccion::rebote(ListaDisparos disparos, Barra &b)
@@ -89,10 +91,11 @@ void Interaccion::rebote(Esfera &e, ListaLadrillos lista)
 		Interaccion::rebote(e,*(lista[i]));
 }
 
-void Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
+bool Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
 {
 	for(int i=0;i<disparos.numero;i++){
 			for(int j=0;j<lista.numero;j++)
-				Interaccion::rebote(*(disparos[i]),*(lista[j]));
+				if(Interaccion::rebote(*(disparos[i]),*(lista[j])))return true;
 	}
+	return false;
 }

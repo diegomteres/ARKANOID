@@ -65,3 +65,4 @@ Esfera *ListaDisparos::operator [](int i)
 	
 	return lista[i];
 }
+

@@ -40,3 +40,28 @@ bool ListaLadrillos::agregar(Ladrillos *e)
 		return false;
 	return true;
 }
+
+void ListaLadrillos::eliminar(int index)
+{
+//	if((index<0)||(index>=numero))
+//		return;
+	
+	delete lista[index];
+
+//	numero--;
+//	for(int i=index;i<numero;i++)
+//		lista[i]=lista[i+1];
+
+}
+
+/*
+void ListaLadrillos::eliminar(Ladrillos *e)
+{
+	for(int i=0;i<numero;i++)
+  		if(lista[i]==e)
+		{
+	  		eliminar(i);
+	  		return;
+		}
+}
+*/
