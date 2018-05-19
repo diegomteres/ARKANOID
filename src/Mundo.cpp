@@ -39,7 +39,8 @@ void Mundo::Dibuja()
 
 	//Dibujar
 	ladrillos.dibuja();
-	esfera.Dibuja();
+//	esfera.Dibuja();
+	disparos.dibuja();
 	bordes.Dibuja();
 	deslizante.Dibuja();
 //	amarillo1.Dibuja();
@@ -51,33 +52,33 @@ void Mundo::Dibuja()
 
 void Mundo::Mover()
 {
-	esfera.Mover(0.025f);
+	disparos.mueve(0.025f);
+//	esfera.Mover(0.025f);
 	deslizante.Mover(0.025f);
-	Interaccion::rebote(esfera, bordes);
+	Interaccion::rebote(disparos, bordes);
 	Interaccion::rebote(deslizante, bordes);
-	Interaccion::rebote(esfera, deslizante);
-	Interaccion::rebote(esfera, ladrillos);
-	if(Interaccion::rebote(esfera, bordes.suelo) == true)
+	Interaccion::rebote(disparos, deslizante);
+	Interaccion::rebote(disparos, ladrillos);
+for(int i=0;i<disparos.numero;i++){
+	if(Interaccion::rebote(*disparos[i], bordes.suelo) == true)
 	{
-		esfera.posicion.x=50.0f;
-		esfera.posicion.y=2.0f;
-		esfera.velocidad.x=2.0f;
-		esfera.velocidad.y=50.0f;
-	
-		deslizante.posicion.x=45.0f;
-		player.vida--;
+		disparos.destruirContenido();
+		player.vida-=1;
 	}
-	if(player.vida=='0')
-		player.gameover = true;
+//	if(player.vida=='0')
+//		player.gameover = true;
+}
 }
 
 void Mundo::Inicializa()
 {
-	pulsado=false;
+/*
 	esfera.SetColor(0,255,0);
 	esfera.SetPos(50.0f,5.0f);
-	esfera.SetRadio(5.0f);
+	esfera.SetRadio(1.0f);
 	esfera.setVel(0.0f,40.0f);
+*/
+
 
 	deslizante.SetColor(255,0,0);
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
@@ -136,3 +137,19 @@ void Mundo::gameover()
 //	fin.Dibuja();
 }
 
+void Mundo::tecla(unsigned char key)
+{
+		switch(key)
+	{
+		case ' ':
+			{
+ 				Esfera* d=new Esfera();
+				Vector2D pos=deslizante.GetPos();
+				d->SetPos(pos.x,pos.y);
+				disparos.agregar(d);
+
+				break;
+			}
+	}
+
+}

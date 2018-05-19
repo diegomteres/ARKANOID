@@ -89,6 +89,7 @@
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\Ladrillos.cpp" />
+    <ClCompile Include="src\ListaDisparos.cpp" />
     <ClCompile Include="src\ListaLadrillos.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Arkanoid.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\Jugador.h" />
     <ClInclude Include="src\Ladrillos.h" />
+    <ClInclude Include="src\ListaDisparos.h" />
     <ClInclude Include="src\ListaLadrillos.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Objeto.h" />

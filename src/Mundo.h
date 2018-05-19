@@ -4,6 +4,7 @@
 #include "Ladrillos.h"
 #include "Jugador.h"
 #include"ListaLadrillos.h"
+#include "ListaDisparos.h"
 
 class Mundo
 {
@@ -11,9 +12,10 @@ public:
 	bool pulsado;
 	Bordes bordes;
 	Pared fin;
-	Esfera esfera;
+//	Esfera esfera;
 	Barra deslizante;
 	ListaLadrillos ladrillos;
+	ListaDisparos disparos;
 	Ladrillos rojo4;
 	Ladrillos azul3;
 	Ladrillos verde2;
@@ -21,6 +23,7 @@ public:
 	Jugador player;
 
 
+	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void teclaEspecial2(unsigned char key);
 	void Dibuja();

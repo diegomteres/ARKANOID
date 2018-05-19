@@ -16,4 +16,5 @@ public:
 	void SetPos(float,float);
 	void SetPos(float,float,float,float);
 	void SetColor(unsigned char, unsigned char, unsigned char);
+	Vector2D GetPos(void);
 };

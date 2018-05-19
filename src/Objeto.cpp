@@ -14,6 +14,11 @@ void Objeto::SetPos(float vx,float vy)
 	posicion.y=vy;
 }
 
+Vector2D Objeto::GetPos(void)
+{
+	return posicion;
+}
+
 void Objeto::SetPos(float x1,float y1,float x2,float y2)
 {
 	limite1.x=x1;

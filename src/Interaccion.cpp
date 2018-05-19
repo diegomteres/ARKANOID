@@ -3,6 +3,7 @@
 #include "Esfera.h"
 #include"ListaLadrillos.h"
 #include"Barra.h"
+#include"ListaDisparos.h"
 
 
 Interaccion::Interaccion()
@@ -37,6 +38,17 @@ void Interaccion::rebote(Esfera &e, Bordes b)
 		Interaccion::rebote(e, b.suelo);
 }
 
+void Interaccion::rebote(ListaDisparos disparos, Bordes b)
+{
+	for(int i=0;i<disparos.numero;i++)
+	{
+		Interaccion::rebote(*(disparos[i]), b.pared_izq);
+		Interaccion::rebote(*(disparos[i]), b.techo);
+		Interaccion::rebote(*(disparos[i]), b.pared_dcha);
+		Interaccion::rebote(*(disparos[i]), b.suelo);
+	}
+}
+
 void Interaccion::rebote(Barra &b, Bordes c) //CORREGIDA YA PARA NO TENER EN CUENTA EL SUELO
 {
 	float xmax = (c.pared_dcha.limite1.x)-10; 
@@ -60,8 +72,27 @@ void Interaccion::rebote(Esfera &e, Barra &b)
 	}
 }
 
+void Interaccion::rebote(ListaDisparos disparos, Barra &b)
+{
+	for(int i=0;i<disparos.numero;i++)
+	{
+		Interaccion::rebote(*(disparos[i]), b);
+		Interaccion::rebote(*(disparos[i]), b);
+		Interaccion::rebote(*(disparos[i]), b);
+		Interaccion::rebote(*(disparos[i]), b);
+	}
+}
+
 void Interaccion::rebote(Esfera &e, ListaLadrillos lista)
 {
 	for(int i=0;i<lista.numero;i++)
 		Interaccion::rebote(e,*(lista[i]));
+}
+
+void Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
+{
+	for(int i=0;i<disparos.numero;i++){
+			for(int j=0;j<lista.numero;j++)
+				Interaccion::rebote(*(disparos[i]),*(lista[j]));
+	}
 }

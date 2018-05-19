@@ -3,6 +3,10 @@
 
 Esfera::Esfera(void)
 {
+	SetColor(0,255,0);
+	SetPos(50.0f,5.0f);
+	SetRadio(1.0f);
+	setVel(0.0f,40.0f);
 }
 
 Esfera::~Esfera(void)
