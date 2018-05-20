@@ -43,7 +43,7 @@ bool ListaLadrillos::agregar(Ladrillos *e)
 
 void ListaLadrillos::eliminar(int index)
 {
-	if((index<0)||(index>=numero))
+	if((index<0)||(index>numero))
 		return;
 	
 	delete lista[index];

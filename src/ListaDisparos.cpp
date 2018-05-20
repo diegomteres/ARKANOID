@@ -45,7 +45,7 @@ void ListaDisparos::destruirDisparo(int index)
 	delete lista[index];
 
 	numero--;
-	for(int i=index;i<numero;i++)
+	for(int i=index;i<=numero;i++)
 		lista[i]=lista[i+1];
 }
 

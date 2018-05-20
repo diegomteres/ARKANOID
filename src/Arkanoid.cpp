@@ -27,7 +27,9 @@ void onSpecialKeyboardDown2(int key, int x, int y) ;
 void glutSpecialUpFunc(void);
 /*void keyboard(unsigned char, int, int);
 void keyPress(int,int,int);
-*/void keyRelease(int,int,int);
+*/
+void keyRelease(int,int,int);
+
 int main(int argc,char* argv[])
 {
 	//Inicializar el gestor de ventanas GLUT
@@ -47,7 +49,7 @@ int main(int argc,char* argv[])
 
 	//Registrar los callbacks
 	glutDisplayFunc(OnDraw);
-	glutTimerFunc(25,OnTimer,0);		//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
+	glutTimerFunc(5,OnTimer,0);		//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	
 	//Keyboard
 	glutKeyboardFunc(OnKeyboardDown);

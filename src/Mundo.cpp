@@ -71,7 +71,7 @@ for(int j=0;j<disparos.numero;j++){
 	if(Interaccion::rebote(*disparos[j], bordes.suelo) == true)
 	{
 		disparos.destruirDisparo(j);
-		player.vida-=1;
+		if(player.vida>'0')player.vida-=1;
 	}
 //	if(player.vida=='0')
 //		player.gameover = true;
@@ -193,10 +193,10 @@ void Mundo::teclaEspecial2(unsigned char key)
 	switch(key)
 	{
 	case GLUT_KEY_LEFT:
-		deslizante.setVel (0,0);
+		deslizante.setVel (0.0f,0.0f);
 			break;
 	case GLUT_KEY_RIGHT:
-		deslizante.setVel (0,0);
+		deslizante.setVel (0.0f,0.0f);
 			break;
 	}
 }
@@ -219,6 +219,9 @@ void Mundo::tecla(unsigned char key)
 
 				break;
 			}
+//		case 'r':
+//			Inicializa();
+//			break;
 
 	}
 
