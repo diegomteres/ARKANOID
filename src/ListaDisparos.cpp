@@ -36,13 +36,19 @@ void ListaDisparos::destruirContenido()
 
 	numero=0;
 }
-/*
-void ListaDisparos::destruirDisparo(int a)
+
+void ListaDisparos::destruirDisparo(int index)
 {
-		delete lista[a];
-		numero-=1;
+		if((index<0)||(index>=numero))
+		return;
+	
+	delete lista[index];
+
+	numero--;
+	for(int i=index;i<numero;i++)
+		lista[i]=lista[i+1];
 }
-*/
+
 bool ListaDisparos::agregar(Esfera *d)
 {
 	for(int i=0;i<numero;i++)//para evitar que se añada una esfera ya existente

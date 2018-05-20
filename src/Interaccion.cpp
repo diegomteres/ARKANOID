@@ -95,7 +95,11 @@ bool Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
 {
 	for(int i=0;i<disparos.numero;i++){
 			for(int j=0;j<lista.numero;j++)
-				if(Interaccion::rebote(*(disparos[i]),*(lista[j])))return true;
+				if(Interaccion::rebote(*(disparos[i]),*(lista[j]))) 
+				{
+					lista.eliminar(j);
+					return true;
+				}
 	}
 	return false;
 }

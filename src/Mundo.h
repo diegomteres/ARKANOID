@@ -9,7 +9,6 @@
 class Mundo
 {
 public:
-	bool pulsado;
 	Bordes bordes;
 	Pared fin;
 //	Esfera esfera;

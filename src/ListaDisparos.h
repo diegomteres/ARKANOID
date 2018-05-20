@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAX_DISPAROS 1
+#define MAX_DISPAROS 3
 #include "Esfera.h"
 #include "Bordes.h"
 
@@ -12,7 +12,7 @@ public:
 	
 	bool agregar(Esfera* d);
 	void destruirContenido();
-//	void destruirDisparo(int i);
+	void destruirDisparo(int i);
 	void mueve(float t);
 	void dibuja();
 
