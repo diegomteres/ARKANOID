@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClCompile Include="src\Barra.cpp" />
     <ClCompile Include="src\Bordes.cpp" />
+    <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Esfera.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
@@ -101,6 +102,7 @@
   <ItemGroup>
     <ClInclude Include="src\Barra.h" />
     <ClInclude Include="src\Bordes.h" />
+    <ClInclude Include="src\Coordinador.h" />
     <ClInclude Include="src\Esfera.h" />
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\Jugador.h" />

@@ -3,7 +3,7 @@
 #include "Esfera.h"
 #include "Ladrillos.h"
 #include "Jugador.h"
-#include"ListaLadrillos.h"
+#include "ListaLadrillos.h"
 #include "ListaDisparos.h"
 
 class Mundo
@@ -29,5 +29,4 @@ public:
 	void Mover();
 	void Inicializa();
 	void gameover();
-
 };

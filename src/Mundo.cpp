@@ -7,6 +7,7 @@
 #include"Esfera.h"
 
 void Mundo::Dibuja()
+
 {
 	int c=0;
 	char nombre[] = "ARKANOID";

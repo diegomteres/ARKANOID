@@ -1,13 +1,16 @@
-#include "Mundo.h"
-#include "Interaccion.h"
-#include "stdlib.h"
-#include "stdio.h"
-//#include <iostream>
-#include "glut.h"
+//#include "Mundo.h"
 
-Mundo mundo;
+
+#include "Interaccion.h"
+#include <stdlib.h>
+#include <glut.h>
+#include "Coordinador.h"
+
+Coordinador coordinador;
+//Mundo mundo;
 
 //Keyboard
+
 #define KEY_LEFT 100
 #define KEY_RIGHT 102
 #define KEY_ESCAPE 27
@@ -24,11 +27,10 @@ void OnTimer(int value);								//esta funcion sera llamada cuando transcurra un
 void OnKeyboardDown(unsigned char key, int x, int y);	//cuando se pulse una tecla	
 void onSpecialKeyboardDown(int key, int x, int y) ;
 void onSpecialKeyboardDown2(int key, int x, int y) ;
-void glutSpecialUpFunc(void);
+//void glutSpecialUpFunc(void);
 /*void keyboard(unsigned char, int, int);
 void keyPress(int,int,int);
 */
-void keyRelease(int,int,int);
 
 int main(int argc,char* argv[])
 {
@@ -56,7 +58,7 @@ int main(int argc,char* argv[])
 	glutSpecialFunc(onSpecialKeyboardDown);
 	glutSpecialUpFunc(onSpecialKeyboardDown2);
 
-	mundo.Inicializa();
+//	mundo.Inicializa();
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();	
@@ -73,7 +75,7 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);	
 	glLoadIdentity();
 	
-	mundo.Dibuja();
+	coordinador.dibuja();
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
@@ -81,23 +83,24 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	mundo.tecla(key);
-	mundo.teclaEspecial(key);
+	coordinador.tecla(key);
+//	coordinador.teclaEspecial(key);							 //repetido debajo y no se por qué
 	glutPostRedisplay();
 }
 void onSpecialKeyboardDown(int key, int x, int y)
 {
-	mundo.teclaEspecial(key);
+	coordinador.teclaEspecial(key);
 }
 void onSpecialKeyboardDown2(int key, int x, int y)
 {
-	mundo.teclaEspecial2(key);
+	coordinador.teclaEspecial2(key);
 }
+
 void OnTimer(int value)
 {
 //poner aqui el código de animacion
 
-	mundo.Mover();
+	coordinador.mueve();
 	//no borrar estas lineas
 //	mundo.teclaEspecial();
 
@@ -105,18 +108,3 @@ void OnTimer(int value)
 	glutPostRedisplay();
 }
 
-void keyRelease(int key, int x,int y)
-{
-	 switch (key) {
-        case KEY_LEFT:
-			mundo.deslizante.velocidad.x = 0;
-            break;
- 
-        case KEY_RIGHT:
-			mundo.deslizante.velocidad.x = 0;
-            break;
- 
-        default:
-            break;
-    }
-}
