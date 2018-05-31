@@ -35,7 +35,10 @@ void Coordinador::dibuja()
 		mundo.Dibuja();
 	else if(estado==GAMEOVER) 
 	{   
-		mundo.Dibuja();  
+		gluLookAt(0, 7.5, 30,  // posicion del ojo  
+		   0.0, 7.5, 0.0,      // hacia que punto mira  (0,7.5,0)    
+		   0.0, 1.0, 0.0);
+//		mundo.Dibuja();  
 		ETSIDI::setTextColor(1,0,0);  
 		ETSIDI::setFont("fuentes/Bitwise.ttf",16);   
 		ETSIDI::printxy("GAMEOVER: Has perdido",-5,10);
@@ -79,11 +82,14 @@ void Coordinador::Tecla(unsigned char key)
 	else if(estado==JUEGO) 
 	{ 
 		mundo.tecla(key); 
+		if(mundo.player.gameover)
+			estado=GAMEOVER;
 	} 
 	else if(estado==GAMEOVER) 
 	{  
 		if(key=='c') 
-			estado=INICIO;  
+			estado=INICIO; 
+			mundo.Inicializa();
 	}  
 	else if(estado==FIN) 
 	{  

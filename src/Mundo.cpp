@@ -46,10 +46,8 @@ void Mundo::Dibuja()
 	deslizante.Dibuja();
 //	amarillo1.Dibuja();
 	player.vidas(player.vida);
-/*	if(player.gameover = true)
-		gameover();
-	glEnable(GL_LIGHTING);
-*/
+	if(player.vida=='0')
+		player.gameover=true;
 }
 
 void Mundo::Mover()
@@ -88,6 +86,9 @@ void Mundo::Inicializa()
 	esfera.SetRadio(1.0f);
 	esfera.setVel(0.0f,40.0f);
 */
+	disparos.destruirContenido();
+	player.vida='3';
+	player.gameover=false;
 
 	deslizante.SetColor(255,0,0);
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
@@ -169,8 +170,10 @@ void Mundo::Inicializa()
 	amarillo1.SetPos(45.0f,7.0f,55.0f,5.0);
 */
 
+/*
 	player.vida = '3';
-	player.gameover = false;
+	player.gameover = false;					SE INICIALIZA EN EL CONSTRUCTOR ANA
+*/
 
 //	fin.SetPos(10.0f,10.0f,90.0f,90.0f);
 //	fin.SetColor(0,0,255);

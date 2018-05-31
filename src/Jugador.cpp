@@ -3,6 +3,8 @@
 
 Jugador::Jugador(void)
 {
+	vida='3';
+	gameover=false;
 }
 
 

@@ -9,7 +9,7 @@
 
 ListaDisparos::ListaDisparos()
 {
-
+	destruirContenido();
 }
 
 ListaDisparos::~ListaDisparos()
