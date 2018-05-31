@@ -16,6 +16,8 @@ Coordinador::~Coordinador(void)
 
 void Coordinador::dibuja() 
 {   
+	if(mundo.player.gameover)
+			estado=GAMEOVER;
 	if(estado==INICIO)  
 	{
 		gluLookAt(0, 7.5, 30,  // posicion del ojo  
@@ -82,8 +84,6 @@ void Coordinador::Tecla(unsigned char key)
 	else if(estado==JUEGO) 
 	{ 
 		mundo.tecla(key); 
-		if(mundo.player.gameover)
-			estado=GAMEOVER;
 	} 
 	else if(estado==GAMEOVER) 
 	{  

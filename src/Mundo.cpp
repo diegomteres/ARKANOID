@@ -86,6 +86,7 @@ void Mundo::Inicializa()
 	esfera.SetRadio(1.0f);
 	esfera.setVel(0.0f,40.0f);
 */
+	ladrillos.inicializa();
 	disparos.destruirContenido();
 	player.vida='3';
 	player.gameover=false;

@@ -14,6 +14,7 @@ public:
 	bool agregar(Ladrillos *e);
 //	void eliminar(Ladrillos *e);
 	void eliminar(int index);
+	void inicializa(void);
 
 private:
 	Ladrillos * lista[MAX_LADRILLOS];
