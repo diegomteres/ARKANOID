@@ -1,9 +1,11 @@
-﻿Compilación iniciada a las 31/05/2018 17:32:29.
+﻿Compilación iniciada a las 31/05/2018 17:45:09.
      1>Proyecto "C:\Users\diego\Documents\GitHub\ARKANOID\Arkanoid.vcxproj" en el nodo 2 (Build destinos).
        El archivo del proyecto contiene ToolsVersion="15.0". Este conjunto de herramientas falta o es desconocido, en cuyo caso es posible que pueda resolver este problema instalando la versión apropiada de MSBuild. También es posible que, por motivos de directiva, se haya exigido a la compilación que use un valor determinado para ToolsVersion. Se tratará el proyecto como si contuviera ToolsVersion="4.0". Para obtener más información, vea http://go.microsoft.com/fwlink/?LinkId=291333.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Ilib /Isrc /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"tmp\Debug\\" /Fd"tmp\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Esfera.cpp
-         Esfera.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Ilib /Isrc /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"tmp\Debug\\" /Fd"tmp\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\Arkanoid.cpp src\Coordinador.cpp
+         Coordinador.cpp
+         Arkanoid.cpp
+         Generando código...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\diego\Documents\GitHub\ARKANOID\bin\Arkanoid.exe" /INCREMENTAL /NOLOGO /LIBPATH:lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\diego\Documents\GitHub\ARKANOID\bin\Arkanoid.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\diego\Documents\GitHub\ARKANOID\bin\Arkanoid.lib" /MACHINE:X86 tmp\Debug\Barra.obj
          tmp\Debug\Bordes.obj
@@ -20,20 +22,9 @@
          tmp\Debug\ObjetoMovil.obj
          tmp\Debug\Pared.obj
          tmp\Debug\Vector2D.obj
-     1>Vector2D.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Pared.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>ObjetoMovil.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Objeto.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Mundo.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>ListaLadrillos.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>ListaDisparos.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Ladrillos.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Jugador.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Bordes.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
-     1>Barra.obj : warning LNK4020: un registro de tipo de 'c:\users\diego\documents\github\arkanoid\tmp\debug\vc110.pdb' estß da±ado; puede que algunos sÝmbolos y tipos no sean accesibles desde el depurador
          Arkanoid.vcxproj -> C:\Users\diego\Documents\GitHub\ARKANOID\bin\Arkanoid.exe
      1>Compilación del proyecto terminada "C:\Users\diego\Documents\GitHub\ARKANOID\Arkanoid.vcxproj" (Build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.78
+Tiempo transcurrido 00:00:01.15
