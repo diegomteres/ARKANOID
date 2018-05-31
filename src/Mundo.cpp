@@ -215,7 +215,7 @@ void Mundo::tecla(unsigned char key)
 			{
  				Esfera* d=new Esfera();
 				Vector2D pos=deslizante.GetPos();
-				d->SetPos(pos.x,pos.y);
+				d->SetPos(pos.x + 1,pos.y + 1);
 				disparos.agregar(d);
 
 				break;

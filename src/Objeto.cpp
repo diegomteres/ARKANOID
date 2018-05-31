@@ -8,10 +8,10 @@ Objeto::~Objeto(void)
 {
 }
 
-void Objeto::SetPos(float vx,float vy)
+void Objeto::SetPos(float x,float y)
 {
-	posicion.x=vx;
-	posicion.y=vy;
+	posicion.x=x;
+	posicion.y=y;
 }
 
 Vector2D Objeto::GetPos(void)

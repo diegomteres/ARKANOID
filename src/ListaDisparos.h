@@ -16,8 +16,8 @@ public:
 	void mueve(float t);
 	void dibuja();
 
-	void colision(Pared p);
-	void colision(Bordes c);
+	void colision(Pared p);		//no estan realizadas
+	void colision(Bordes c);	//tampoco
 	int numero;
 
 	Esfera* operator[] (int index);
