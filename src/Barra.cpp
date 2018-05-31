@@ -30,7 +30,7 @@ void Barra::Dibuja()//CAMBIO
 
 float Barra::distancia(Vector2D punto, Vector2D *direccion)
 {  
-	Vector2D l1 = posicion , l2;
+		Vector2D l1 = posicion , l2;
 	l2.x = posicion.x + (limite2.x-limite1.x);
 	l2.y = posicion.y + (limite2.y-limite1.y);
 	Vector2D u=(punto-l1);
