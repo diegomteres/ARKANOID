@@ -83,7 +83,7 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	coordinador.tecla(key);
+	coordinador.Tecla(key);
 //	coordinador.teclaEspecial(key);							 //repetido debajo y no se por qué
 	glutPostRedisplay();
 }

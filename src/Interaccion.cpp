@@ -79,9 +79,6 @@ void Interaccion::rebote(ListaDisparos disparos, Barra &b)
 	for(int i=0;i<disparos.numero;i++)
 	{
 		Interaccion::rebote(*(disparos[i]), b);
-		Interaccion::rebote(*(disparos[i]), b);
-		Interaccion::rebote(*(disparos[i]), b);
-		Interaccion::rebote(*(disparos[i]), b);
 	}
 }
 
