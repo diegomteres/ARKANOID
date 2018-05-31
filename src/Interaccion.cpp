@@ -1,21 +1,19 @@
 #include "Interaccion.h"
 #include "Bordes.h"
 #include "Esfera.h"
-#include"ListaLadrillos.h"
-#include"Barra.h"
-#include"ListaDisparos.h"
-
+#include "ListaLadrillos.h"
+#include "Barra.h"
+#include "ListaDisparos.h"
 
 Interaccion::Interaccion()
 {
 }
 
-
 Interaccion::~Interaccion()
 {
 }
 
-bool Interaccion:: rebote(Esfera &e,  Pared p)
+bool Interaccion:: rebote(Esfera &e,  Pared p) //ESFERA PAREDES
 {
 	Vector2D dir; 
 	float dif = p.distancia(e.posicion, &dir) - e.radio;  
@@ -29,8 +27,8 @@ bool Interaccion:: rebote(Esfera &e,  Pared p)
 	return false;
 }
 
-
-void Interaccion::rebote(Esfera &e, Bordes b)
+//AQUI ABAJO, CREO Q YA NOS SOBRA... 
+void Interaccion::rebote(Esfera &e, Bordes b)	//ESFERA PAREDES
 {
 		Interaccion::rebote(e, b.pared_izq);
 		Interaccion::rebote(e, b.techo);
@@ -38,7 +36,7 @@ void Interaccion::rebote(Esfera &e, Bordes b)
 		Interaccion::rebote(e, b.suelo);
 }
 
-void Interaccion::rebote(ListaDisparos disparos, Bordes b)
+void Interaccion::rebote(ListaDisparos disparos, Bordes b)	//ESFERA PAREDES
 {
 	for(int i=0;i<disparos.numero;i++)
 	{
@@ -49,7 +47,7 @@ void Interaccion::rebote(ListaDisparos disparos, Bordes b)
 	}
 }
 
-void Interaccion::rebote(Barra &b, Bordes c) //CORREGIDA YA PARA NO TENER EN CUENTA EL SUELO
+void Interaccion::rebote(Barra &b, Bordes c) //BARRA PAREDES		//CORREGIDA YA PARA NO TENER EN CUENTA EL SUELO
 {
 	float xmax = (c.pared_dcha.limite1.x)-10; 
 	float xmin = c.pared_izq.limite2.x; 
@@ -58,10 +56,10 @@ void Interaccion::rebote(Barra &b, Bordes c) //CORREGIDA YA PARA NO TENER EN CUE
 }
 		//todavia no funciona, 
 
-bool Interaccion::rebote(Esfera &e, Barra &b)
+bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 {
 	Vector2D dir;
-	float dif = b.distancia(e.posicion, &dir) - e.radio; ;
+	float dif = b.distancia(e.posicion, &dir) - e.radio; 
 	float li = b.posicion.x;
 	float ld = b.posicion.x+(b.limite2.x-b.limite1.x);
 	if((e.posicion.x>=li) && (e.posicion.x<=ld) && (dif<=0.0f))
@@ -74,7 +72,7 @@ bool Interaccion::rebote(Esfera &e, Barra &b)
 	return false;
 }
 
-void Interaccion::rebote(ListaDisparos disparos, Barra &b)
+void Interaccion::rebote(ListaDisparos disparos, Barra &b)	//ESFERAS BARRA***
 {
 	for(int i=0;i<disparos.numero;i++)
 	{
