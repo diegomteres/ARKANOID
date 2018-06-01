@@ -1,7 +1,3 @@
-// ListaDisparos.cpp: implementation of the ListaDisparos class.
-//
-//////////////////////////////////////////////////////////////////////
-
 #include "ListaDisparos.h"
 #include "Interaccion.h"
 #include "Esfera.h"

@@ -84,6 +84,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Barra.cpp" />
+    <ClCompile Include="src\Bonus.cpp" />
+    <ClCompile Include="src\Bonuses.cpp" />
     <ClCompile Include="src\Bordes.cpp" />
     <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Esfera.cpp" />
@@ -101,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Barra.h" />
+    <ClInclude Include="src\Bonus.h" />
+    <ClInclude Include="src\Bonuses.h" />
     <ClInclude Include="src\Bordes.h" />
     <ClInclude Include="src\Coordinador.h" />
     <ClInclude Include="src\Esfera.h" />

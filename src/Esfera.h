@@ -13,7 +13,7 @@ public:
 	void SetRadio(float);
 
 
-private:
+protected:		//PONGO EL RADIO PREOTECTED PARA QUE BONUS LO HEREDE COM ATRIBUTO PROPIO PRIVADO
 
 	float radio;
 };

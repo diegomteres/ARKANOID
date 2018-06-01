@@ -3,6 +3,7 @@
 #include "Barra.h"
 #include "ListaLadrillos.h"
 #include"ListaDisparos.h"
+#include "Bonuses.h"
 
 #pragma once
 class Interaccion
@@ -20,6 +21,6 @@ public:
 	static void rebote(ListaDisparos disparos, Barra &b);  ///// HECHA
 
 	static void rebote(Esfera &e, ListaLadrillos lista);
-	static bool rebote(ListaDisparos disparos, ListaLadrillos lista);  ////// 
+	static int rebote(ListaDisparos disparos, ListaLadrillos lista);  ////// 
 	
 };

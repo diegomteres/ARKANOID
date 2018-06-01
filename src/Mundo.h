@@ -5,22 +5,22 @@
 #include "Jugador.h"
 #include "ListaLadrillos.h"
 #include "ListaDisparos.h"
+#include"Bonus.h"
+#include "Bonuses.h"
 
 class Mundo
 {
 public:
 	Bordes bordes;
 	Pared fin;
+//	Bonus bonus;
+	Bonuses bonuses;
 //	Esfera esfera;
 	Barra deslizante;
 	ListaLadrillos ladrillos;
 	ListaDisparos disparos;
-	Ladrillos rojo4;
-	Ladrillos azul3;
-	Ladrillos verde2;
-	Ladrillos amarillo1;
 	Jugador player;
-
+	int num;
 
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);

@@ -4,6 +4,7 @@
 #include "ListaLadrillos.h"
 #include "Barra.h"
 #include "ListaDisparos.h"
+#include "Bonuses.h"
 
 Interaccion::Interaccion()
 {
@@ -59,7 +60,7 @@ void Interaccion::rebote(Barra &b, Bordes c) //BARRA PAREDES		//CORREGIDA YA PAR
 bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 {
 	Vector2D dir;
-	float dif = b.distancia(e.posicion, &dir) - e.radio; 
+ 	float dif = b.distancia(e.posicion, &dir) - e.radio; 
 	float li = b.posicion.x;
 	float ld = b.posicion.x+(b.limite2.x-b.limite1.x);
 	if((e.posicion.x>=li) && (e.posicion.x<=ld) && (dif<=0.0f))
@@ -80,21 +81,22 @@ void Interaccion::rebote(ListaDisparos disparos, Barra &b)	//ESFERAS BARRA***
 	}
 }
 
+
 void Interaccion::rebote(Esfera &e, ListaLadrillos lista)
 {
 	for(int i=0;i<lista.numero;i++)
 		Interaccion::rebote(e,*(lista[i]));
 }
 
-bool Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
+int Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
 {
 	for(int i=0;i<disparos.numero;i++){
 			for(int j=0;j<lista.numero;j++)
 				if(Interaccion::rebote(*(disparos[i]),*(lista[j]))) 
 				{
 					lista.eliminar(j);
-					return true;
+					return i;
 				}
 	}
-	return false;
+	return -1;
 }

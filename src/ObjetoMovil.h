@@ -9,6 +9,7 @@ class ObjetoMovil:public Objeto
 
 	void Mover(float);
 	void setVel(float, float);
+	void setAceleracion(float,float);
 	ObjetoMovil(void);
 	virtual ~ObjetoMovil(void);
 };

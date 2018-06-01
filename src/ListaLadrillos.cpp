@@ -16,6 +16,7 @@ void ListaLadrillos::inicializa()
 	numero=0;
 	for(int i=0;i<MAX_LADRILLOS;i++)lista[i]=0;
 }
+
 void ListaLadrillos::dibuja()
 {
 	for(int i=0;i<numero;i++)
