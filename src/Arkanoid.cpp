@@ -1,6 +1,9 @@
 //#include "Mundo.h"
-
-
+						//POLIMORFISMO: DISTINTOS LADRILLOS
+						//CARGAR NIVEL DESDE FICHERO
+						//BONUS HAGAN COSAS (SALGAN ALEATORIAMENTE) nuevos disparos, diferente barra, vida, etc.
+						//PRESENTACIIÓN: MARTES 12 A LAS 16:00
+					
 #include "Interaccion.h"
 #include <stdlib.h>
 #include <glut.h>

@@ -2,11 +2,12 @@
 class Jugador
 {
 public:
-	char vida;
+	int vida;
 	bool gameover;
+	void inicializa();
 	Jugador(void);
 	virtual ~Jugador(void);
-	void vidas(char);
+	void vidas(int);
 	
 };
 

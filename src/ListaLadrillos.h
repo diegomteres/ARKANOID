@@ -1,5 +1,5 @@
 #pragma once
-#include"Ladrillos.h"
+#include"Ladrillos.h" //APLICAR POLIMORFISMO
 
 #define MAX_LADRILLOS 100
 

@@ -4,6 +4,7 @@
 #include "ListaLadrillos.h"
 #include"ListaDisparos.h"
 #include "Bonuses.h"
+#include "Jugador.h"
 
 #pragma once
 class Interaccion
@@ -18,6 +19,7 @@ public:
 
 	static void rebote(Barra &b, Bordes c);
 	static bool rebote(Esfera &e, Barra &b);
+	static bool rebote(Esfera &e, Barra &b, Jugador &player);
 	static void rebote(ListaDisparos disparos, Barra &b);  ///// HECHA
 
 	static void rebote(Esfera &e, ListaLadrillos lista);

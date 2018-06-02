@@ -3,8 +3,7 @@
 
 Jugador::Jugador(void)
 {
-	vida='3';
-	gameover=false;
+	inicializa();
 }
 
 
@@ -12,10 +11,17 @@ Jugador::~Jugador(void)
 {
 }
 
-void Jugador::vidas(char v)
+void Jugador::inicializa(void)
+{
+		vida=3;
+	gameover=false;
+}
+
+void Jugador::vidas(int v)
 {
 	char vidas[] = "VIDAS:";
 	int a=0;
+	char valor=v+'0';
 
 	glColor3ub(255,50,50);
 	for(int i=0;vidas[i]!='\0';i++)
@@ -25,7 +31,7 @@ void Jugador::vidas(char v)
 	a+=2;
 	}
 	glRasterPos3i(4+a,95,1);
-	glutBitmapCharacter(GLUT_BITMAP_8_BY_13,v);
+	glutBitmapCharacter(GLUT_BITMAP_8_BY_13,valor);
 }
 
 /*

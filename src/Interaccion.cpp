@@ -73,6 +73,16 @@ bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 	return false;
 }
 
+bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player)
+{
+	if(Interaccion::rebote(e,b)==true)
+	{
+		player.vida+=1;
+		return true;
+	}
+	return false;
+}
+
 void Interaccion::rebote(ListaDisparos disparos, Barra &b)	//ESFERAS BARRA***
 {
 	for(int i=0;i<disparos.numero;i++)

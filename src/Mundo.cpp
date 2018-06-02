@@ -49,7 +49,7 @@ void Mundo::Dibuja()
 	bonuses.dibuja();
 //	amarillo1.Dibuja();
 	player.vidas(player.vida);
-	if(player.vida=='0')
+	if(player.vida==0)
 		player.gameover=true;
 }
 
@@ -71,15 +71,15 @@ void Mundo::Mover()
 
 	
 for(int i=0;i<bonuses.numero;i++){
-	if(Interaccion::rebote(*bonuses[i],deslizante) == true)
-		bonuses.destruirBonus(i);
-}
+	if((Interaccion::rebote(*bonuses[i],deslizante,player) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
+		bonuses.destruirBonus(i);																								//AL RECOGER BONUS GANA 1 VIDA 
+}																																//(definido en el propio rebote al que le pasas player)
 
 for(int j=0;j<disparos.numero;j++){
 	if(Interaccion::rebote(*disparos[j], bordes.suelo) == true)
 	{
 		disparos.destruirDisparo(j);
-		if(player.vida>'0')player.vida-=1;
+		if(player.vida>0)player.vida-=1;
 	}
 }
 }
@@ -89,7 +89,7 @@ void Mundo::Inicializa()
 	ladrillos.inicializa();
 	bonuses.inicializa();
 	disparos.destruirContenido();
-	player.vida='3';
+	player.vida=3;
 	player.gameover=false;
 
 	deslizante.SetColor(255,0,0);
