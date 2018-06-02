@@ -5,7 +5,7 @@
 
 ListaDisparos::ListaDisparos()
 {
-	destruirContenido();
+	inicializa();
 }
 
 ListaDisparos::~ListaDisparos()
@@ -33,6 +33,13 @@ void ListaDisparos::destruirContenido()
 	numero=0;
 }
 
+void ListaDisparos::inicializa()
+{
+	numero=0;
+	max=0;
+	for(int i=0;i<MAX_DISPAROS;i++)lista[i]=0;
+}
+
 void ListaDisparos::destruirDisparo(int index)
 {
 		if((index<0)||(index>=numero))
@@ -40,7 +47,7 @@ void ListaDisparos::destruirDisparo(int index)
 	
 	delete lista[index];
 
-	numero--;
+	numero--; 
 	for(int i=index;i<=numero;i++)
 		lista[i]=lista[i+1];
 }
@@ -51,7 +58,7 @@ bool ListaDisparos::agregar(Esfera *d)
 		if(lista[i]==d)
 			return false;
 
-	if(numero<MAX_DISPAROS)
+	if(numero<=max)
 	   lista[numero++]=d;
 	else 
 		return false;

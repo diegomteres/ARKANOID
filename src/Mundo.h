@@ -21,6 +21,7 @@ public:
 	ListaDisparos disparos;
 	Jugador player;
 	int num;
+	friend class Interaccion;
 
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);

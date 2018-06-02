@@ -15,10 +15,12 @@ public:
 	void destruirDisparo(int i);
 	void mueve(float t);
 	void dibuja();
+	void inicializa(void);
 
 	void colision(Pared p);		//no estan realizadas
 	void colision(Bordes c);	//tampoco
 	int numero;
+	int max;
 
 	Esfera* operator[] (int index);
 private:

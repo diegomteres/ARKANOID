@@ -7,6 +7,7 @@
 #include"Esfera.h"
 #include "Bonus.h"
 #include"Bonuses.h"
+#include"ListaLadrillos.h"
 
 void Mundo::Dibuja()
 
@@ -71,10 +72,10 @@ void Mundo::Mover()
 
 	
 for(int i=0;i<bonuses.numero;i++){
-	if((Interaccion::rebote(*bonuses[i],deslizante,player) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
-		bonuses.destruirBonus(i);																								//AL RECOGER BONUS GANA 1 VIDA 
-}																																//(definido en el propio rebote al que le pasas player)
-
+	if((Interaccion::rebote(*bonuses[i],deslizante,player, bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
+		bonuses.destruirBonus(i);																																	//AL RECOGER BONUS GANA 1 VIDA 
+																																								    //(definido en el propio rebote al que le pasas player)
+}	
 for(int j=0;j<disparos.numero;j++){
 	if(Interaccion::rebote(*disparos[j], bordes.suelo) == true)
 	{
@@ -87,8 +88,8 @@ for(int j=0;j<disparos.numero;j++){
 void Mundo::Inicializa()
 {
 	ladrillos.inicializa();
+	disparos.inicializa();
 	bonuses.inicializa();
-	disparos.destruirContenido();
 	player.vida=3;
 	player.gameover=false;
 

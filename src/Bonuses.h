@@ -18,7 +18,7 @@ public:
 	void dibuja();
 
 	int numero;
-	Esfera* operator[] (int index);
+	Bonus* operator[] (int index);
 private:
 	Bonus* lista[MAX_BONUS];
 	

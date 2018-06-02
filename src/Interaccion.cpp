@@ -5,6 +5,8 @@
 #include "Barra.h"
 #include "ListaDisparos.h"
 #include "Bonuses.h"
+#include<iostream>
+using namespace std;
 
 Interaccion::Interaccion()
 {
@@ -21,7 +23,7 @@ bool Interaccion:: rebote(Esfera &e,  Pared p) //ESFERA PAREDES
 	if (dif <= 0.0f) 
 	{
 		Vector2D v_inicial = e.velocidad; 
-		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
+ 		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
 		e.posicion = e.posicion - dir * dif; 
 		return true; 
 	} 
@@ -73,12 +75,15 @@ bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 	return false;
 }
 
-bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player)
+bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player, int tipo, ListaDisparos &disparos)
 {
-	if(Interaccion::rebote(e,b)==true)
+	if(Interaccion::rebote((Esfera)e,b)==true)
 	{
-		player.vida+=1;
-		return true;
+		switch (tipo){
+		case 0/*VIDA*/:  player.vida+=1; cout<<"has obtenido una vida"; return true;
+		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1;  cout<<"has obtenido un disparo adicional"; return true;
+		case 2/*BARRA*/:  	return false;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
+		}
 	}
 	return false;
 }
@@ -104,7 +109,7 @@ int Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
 			for(int j=0;j<lista.numero;j++)
 				if(Interaccion::rebote(*(disparos[i]),*(lista[j]))) 
 				{
-					lista.eliminar(j);
+					lista.eliminar(lista[j]);
 					return i;
 				}
 	}

@@ -62,7 +62,7 @@ bool Bonuses::agregar(Bonus *d)
 	return true;
 }
 
-Esfera *Bonuses::operator [](int i)
+Bonus *Bonuses::operator [](int i)
 {
 	if(i>=numero)
 		i=numero-1;

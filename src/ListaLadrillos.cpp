@@ -58,3 +58,13 @@ void ListaLadrillos::eliminar(int index)
 		lista[i]=lista[i+1];
 
 }
+
+void ListaLadrillos::eliminar(Ladrillos *e)
+{
+	for(int i=0;i<numero;i++)
+	if(lista[i]==e)
+	{
+	eliminar(i);
+	return;
+	}
+}
