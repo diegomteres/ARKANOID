@@ -36,7 +36,7 @@ void ListaDisparos::destruirContenido()
 void ListaDisparos::inicializa()
 {
 	numero=0;
-	max=0;
+	max=1;
 	for(int i=0;i<MAX_DISPAROS;i++)lista[i]=0;
 }
 
@@ -58,7 +58,7 @@ bool ListaDisparos::agregar(Esfera *d)
 		if(lista[i]==d)
 			return false;
 
-	if(numero<=max)
+	if(numero<max)
 	   lista[numero++]=d;
 	else 
 		return false;
