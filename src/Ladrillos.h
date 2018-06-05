@@ -3,13 +3,14 @@
 
 class Ladrillos:public Barra
 {
+protected:
+	int golpes;
 public:
-
-
 	Ladrillos(void);
 	Ladrillos(float x1,float y1,float x2,float y2);
-//	Ladrillos::Ladrillos(float x1,float y1,float x2,float y2);
 	virtual ~Ladrillos(void);
-	//HOLA
+
+	virtual int getGolpes(){return golpes;}
+	virtual void golpeado(){golpes--;}
 };
 

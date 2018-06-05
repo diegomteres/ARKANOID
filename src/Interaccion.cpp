@@ -52,7 +52,7 @@ void Interaccion::rebote(ListaDisparos disparos, Bordes b)	//ESFERA PAREDES
 
 void Interaccion::rebote(Barra &b, Bordes c) //BARRA PAREDES		//CORREGIDA YA PARA NO TENER EN CUENTA EL SUELO
 {
-	float xmax = (c.pared_dcha.limite1.x)-10; 
+	float xmax = (c.pared_dcha.limite1.x)-(b.limite2.x-b.limite1.x); 
 	float xmin = c.pared_izq.limite2.x; 
 	if (b.posicion.x>xmax)b.posicion.x = xmax; 
 	if (b.posicion.x<xmin)b.posicion.x = xmin;
@@ -128,9 +128,9 @@ bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player, int tipo, ListaDi
 	if(Interaccion::rebote((Esfera)e,b)==true)
 	{
 		switch (tipo){
-		case 0/*VIDA*/:  player.vida+=1; cout<<"has obtenido una vida"; return true;
-		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1;  cout<<"has obtenido un disparo adicional"; return true;
-		case 2/*BARRA*/:  	return false;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
+		case 0/*VIDA*/:  player.vida+=1; cout<<"¡Has obtenido una vida!"<<endl; return true;
+		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1;  cout<<"¡Has obtenido un disparo adicional!"<<endl; return true;
+		case 2/*BARRA*/:  b.limite2.x+=5; cout<<"¡Tu barra ha sido mejorada!"<<endl;	return true;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
 		}
 	}
 	return false;

@@ -51,12 +51,11 @@ void ListaLadrillos::eliminar(int index)
 	if((index<0)||(index>numero))
 		return;
 	
-	delete lista[index];
+	delete lista[index]; 
 
 	numero--;
-	for(int i=index;i<=numero;i++)
+	for(int i=index;i<numero;i++)
 		lista[i]=lista[i+1];
-
 }
 
 void ListaLadrillos::eliminar(Ladrillos *e)

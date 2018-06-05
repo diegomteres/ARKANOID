@@ -10,7 +10,7 @@ Bonus::Bonus(void)
 	setVel(0.0f,-1.0f);
 	
 	srand(time(NULL));
-	int i=rand()%2; //AL HACER EL MÓDULO OBTENEMOS SIEMPRE UN NÚMERO ENTRE 0 Y 2
+	int i=rand()%3; //AL HACER EL MÓDULO OBTENEMOS SIEMPRE UN NÚMERO ENTRE 0 Y 2
 	switch (i){
 		case 0: tipo=VIDA; break;
 		case 1: tipo=DISPARO; break;	//GENERA ALEATORIAMENTE EL TIPO DE BONUS
