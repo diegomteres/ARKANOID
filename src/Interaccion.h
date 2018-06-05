@@ -24,6 +24,6 @@ public:
 	static void rebote(ListaDisparos disparos, Barra &b);  ///// HECHA
 
 	static void rebote(Esfera &e, ListaLadrillos lista);
-	static int rebote(ListaDisparos disparos, ListaLadrillos lista);  ////// 
+	static int rebote(ListaDisparos disparos, ListaLadrillos lista, bool &k);  ////// 
 	
 };

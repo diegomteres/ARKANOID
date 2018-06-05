@@ -64,23 +64,28 @@ void Mundo::Mover()
 	Interaccion::rebote(disparos, bordes);
 	Interaccion::rebote(deslizante, bordes);
 	Interaccion::rebote(disparos, deslizante);
-	if((num=Interaccion::rebote(disparos,ladrillos))!=-1)
-	{
-		Bonus *b1=new Bonus();
-		b1->SetPos(disparos[num]->posicion.x, disparos[num]->posicion.y);
-		bonuses.agregar(b1); 
-	}
-for(int i=0;i<bonuses.numero;i++){
-	if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
-		bonuses.destruirBonus(i);																																	
-}	
-for(int j=0;j<disparos.numero;j++){
+	for(int j=0;j<disparos.numero;j++){
 	if(Interaccion::rebote(*disparos[j], bordes.suelo) == true)
 	{
 		disparos.destruirDisparo(j);
 		if(player.vida>0)player.vida-=1;
 	}
 }
+	bool k=false;
+	if((num=Interaccion::rebote(disparos,ladrillos,k))!=-1)
+	{
+		if(k==true){
+		Bonus *b1=new Bonus();
+		b1->SetPos(disparos[num]->posicion.x, disparos[num]->posicion.y);
+		bonuses.agregar(b1); 
+		}
+	}
+
+for(int i=0;i<bonuses.numero;i++){
+	if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
+		bonuses.destruirBonus(i);																																	
+}	
+
 }
 
 void Mundo::Inicializa()
@@ -95,16 +100,14 @@ void Mundo::Inicializa()
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
 	deslizante.setVel(0.0f,0.0f);
 
-	Ladrillos *l1=new Ladrillos(5.0f,23.0f,15.0f,20.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
-	l1->SetColor(0,0,255);								 // SINO LA COLISIÓN Y ELIMINACIÓN DE LADRILLOS NO FUNCIONA
+	LadrillosBonus *l1=new LadrillosBonus(5.0f,23.0f,15.0f,20.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
+								  								    // SINO LA COLISIÓN Y ELIMINACIÓN DE LADRILLOS NO FUNCIONA
 	ladrillos.agregar(l1); 
 
-	Ladrillos *l2=new Ladrillos(17.0f,23.0f,27.0f,20.0f);
-	l2->SetColor(0,255,0);
+	LadrillosBonus *l2=new LadrillosBonus(17.0f,23.0f,27.0f,20.0f);
 	ladrillos.agregar(l2); 
 
-	Ladrillos *l3=new Ladrillos(29.0f,23.0f,39.0f,20.0f);
-	l3->SetColor(255,0,0);
+	LadrillosBonus *l3=new LadrillosBonus(29.0f,23.0f,39.0f,20.0f);
 	ladrillos.agregar(l3); 
 
 	Ladrillos *l4=new Ladrillos(41.0f,23.0f,51.0f,20.0f);

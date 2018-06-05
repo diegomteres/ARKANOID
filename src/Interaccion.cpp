@@ -104,25 +104,6 @@ bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 	return false;
 }
 
-/*
- 	float dif = b.distancia(e.posicion,i, &dir) - e.radio;
-/*	
-	float li = //una funcion para este
-	float ld = // otra para este
-
-	if((e.posicion.x>=li) && (e.posicion.x<=ld) && (dif<=0.0f))
-	{
-		Vector2D v_inicial = e.velocidad; 
-		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
-		e.posicion = e.posicion - dir * dif; 
-		return true;
-	}
-	}
-	return false;
-}
-
-*/
-
 bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player, int tipo, ListaDisparos &disparos)
 {
 	if(Interaccion::rebote((Esfera)e,b)==true)
@@ -151,14 +132,17 @@ void Interaccion::rebote(Esfera &e, ListaLadrillos lista)
 		Interaccion::rebote(e,*(lista[i]));
 }
 
-int Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista)
+int Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista, bool &k)
 {
 	for(int i=0;i<disparos.numero;i++){
 			for(int j=0;j<lista.numero;j++)
 				if(Interaccion::rebote(*(disparos[i]),*(lista[j]))) 
 				{
+					lista[j]->golpeado();
+					if(lista[j]->getGolpes()==0){
+					if(lista[j]->daBonus())k=true;
 					lista.eliminar(lista[j]);
-					return i;
+					return i;}
 				}
 	}
 	return -1;

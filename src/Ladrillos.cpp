@@ -5,9 +5,9 @@ Ladrillos::Ladrillos(void)
 {
 }
 
-Ladrillos::Ladrillos(float x1,float y1,float x2,float y2)
+Ladrillos::Ladrillos(float x1,float y1,float x2,float y2, int i)
 {
-	SetColor(0,255,0);
+	golpes=i;
 	SetPos(x1,y1,x2,y2);
 }
 
