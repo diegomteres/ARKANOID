@@ -11,6 +11,30 @@ Barra::~Barra(void)
 {
 
 }
+/*
+void Barra::act_lados()
+{
+	arriba[0].x = posicion.x;
+	arriba[0].y = posicion.y;
+	arriba[1].x = posicion.x + abs(limite2.x-limite1.x);
+	arriba[1].y = posicion.y;
+
+	derecha[0].x = posicion.x + abs(limite2.x-limite1.x);
+	derecha[0].y = limite2.y;
+	derecha[1].x = posicion.x + abs(limite2.x-limite1.x);
+	derecha[1].y = posicion.y;
+
+	abajo[0].x = posicion.x;
+	abajo[0].y = limite2.y;
+	abajo[1].x = posicion.x + abs(limite2.x-limite1.x);
+	abajo[1].y = limite2.y;
+
+	izquierda[0].x = posicion.x;
+	izquierda[0] = limite2.y;
+	izquierda[1] = posicion.x;
+	izquierda[1] = posicion.y;
+}
+*/
 
 void Barra::Dibuja()//CAMBIO
 {
@@ -28,11 +52,16 @@ void Barra::Dibuja()//CAMBIO
     glEnd();
 }
 
-float Barra::distancia(Vector2D punto, Vector2D *direccion)
-{  
-		Vector2D l1 = posicion , l2;
-	l2.x = posicion.x + (limite2.x-limite1.x);
-	l2.y = posicion.y + (limite2.y-limite1.y);
+float Barra::distancia(Vector2D punto,int i,Vector2D *direccion)
+{ 
+	Vector2D l1,l2;
+	float *p;
+	p = getLado(i);
+	l1.x = p[0];
+	l1.y = p[1];
+	l2.x = p[2];
+	l2.y = p[3];
+		
 	Vector2D u=(punto-l1);
 	Vector2D v=(l2-l1).unitario();
 	float longitud=(l1-l2).modulo(); 
@@ -51,3 +80,51 @@ float Barra::distancia(Vector2D punto, Vector2D *direccion)
 		*direccion=dir.unitario();  
 	return distancia;
 }
+
+float * Barra::getLado(int i)
+{
+	float vector[4]; //(l1x,l1y,l2x,l2y)
+	switch(i)
+	{
+	case 0:	//superior
+		vector[0] = posicion.x;
+		vector[1] = posicion.y;
+		vector[2] = posicion.x + abs(limite2.x-limite1.x);
+		vector[3] = posicion.y;
+		break;
+	case 1:	//derecho
+		vector[0] = posicion.x + abs(limite2.x-limite1.x);
+		vector[1] = limite2.y;
+		vector[2] = vector[0];
+		vector[3] = posicion.y;
+		break;
+	case 2:	//inferior
+		vector[0] = posicion.x;
+		vector[1] = limite2.y;
+		vector[2] = posicion.x + abs(limite2.x-limite1.x);
+		vector[3] = limite2.y;
+		break;
+	case 3:	//izquierdo
+		vector[0] = posicion.x;
+		vector[1] = limite2.y;
+		vector[2] = posicion.x;
+		vector[3] = posicion.y;
+		break;
+	}
+	return vector;
+}
+
+	// BARRA (45,2,55,1)
+	/*
+	POSICION = 45,2
+	LIMITE 2 = 55,1
+	rango = limite 2-limite1
+	para 0 (superior)-> l1 = 45,2;
+						l2 = 55,2;
+	para 1 (derecho)->	l1 = 55,1;
+						l2 = 55,2;
+	para 2 (inferior)->	l1 = 45,1;
+						l2 = 55,1;
+	para 3 (izquier)->	l1 = 45,1;
+						l2 = 45,2;
+	*/

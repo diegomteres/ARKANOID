@@ -62,9 +62,54 @@ void Interaccion::rebote(Barra &b, Bordes c) //BARRA PAREDES		//CORREGIDA YA PAR
 bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 {
 	Vector2D dir;
- 	float dif = b.distancia(e.posicion, &dir) - e.radio; 
-	float li = b.posicion.x;
-	float ld = b.posicion.x+(b.limite2.x-b.limite1.x);
+	float lm,lM;
+	int eje; //0-horizontal, 1-vertical
+	for(int i=0;i<4;i++)
+	{
+	//funcion eje
+	if(i==0 || i==2)
+	eje = 0;
+	else
+	eje = 1;
+
+	if(eje == 0)
+	{
+		float dif = b.distancia(e.posicion,i, &dir) - e.radio;
+		lm = b.posicion.x;
+		lM = b.posicion.x + (b.limite2.x-b.limite1.x);
+		if((e.posicion.x>=lm) && (e.posicion.x<=lM) && (dif<=0.0f))
+		{
+		Vector2D v_inicial = e.velocidad; 
+		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
+		e.posicion = e.posicion - dir * dif; 
+		return true;
+		}
+	}
+
+	if(eje == 1)
+	{
+		float dif = b.distancia(e.posicion,i, &dir) - e.radio;
+		lm = b.posicion.y + (b.limite2.y-b.limite1.y);
+		lM = b.posicion.y;
+		if((e.posicion.y>=lm) && (e.posicion.y<=lM) && (dif<=0.0f))
+		{
+		Vector2D v_inicial = e.velocidad; 
+		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
+		e.posicion = e.posicion - dir * dif; 
+		return true;
+		}
+	}
+
+	}
+	return false;
+}
+
+/*
+ 	float dif = b.distancia(e.posicion,i, &dir) - e.radio;
+/*	
+	float li = //una funcion para este
+	float ld = // otra para este
+
 	if((e.posicion.x>=li) && (e.posicion.x<=ld) && (dif<=0.0f))
 	{
 		Vector2D v_inicial = e.velocidad; 
@@ -72,8 +117,11 @@ bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 		e.posicion = e.posicion - dir * dif; 
 		return true;
 	}
+	}
 	return false;
 }
+
+*/
 
 bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player, int tipo, ListaDisparos &disparos)
 {

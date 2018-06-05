@@ -97,51 +97,51 @@ void Mundo::Inicializa()
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
 	deslizante.setVel(0.0f,0.0f);
 
-	Ladrillos *l1=new Ladrillos(5.0f,20.0f,15.0f,23.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
+	Ladrillos *l1=new Ladrillos(5.0f,23.0f,15.0f,20.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
 	l1->SetColor(0,0,255);								 // SINO LA COLISIÓN Y ELIMINACIÓN DE LADRILLOS NO FUNCIONA
 	ladrillos.agregar(l1); 
 
-	Ladrillos *l2=new Ladrillos(17.0f,20.0f,27.0f,23.0f);
+	Ladrillos *l2=new Ladrillos(17.0f,23.0f,27.0f,20.0f);
 	l2->SetColor(0,255,0);
 	ladrillos.agregar(l2); 
 
-	Ladrillos *l3=new Ladrillos(29.0f,20.0f,39.0f,23.0f);
+	Ladrillos *l3=new Ladrillos(29.0f,23.0f,39.0f,20.0f);
 	l3->SetColor(255,0,0);
 	ladrillos.agregar(l3); 
 
-	Ladrillos *l4=new Ladrillos(41.0f,20.0f,51.0f,23.0f);
+	Ladrillos *l4=new Ladrillos(41.0f,23.0f,51.0f,20.0f);
 	l4->SetColor(0,0,255);
 	ladrillos.agregar(l4); 
 
-	Ladrillos *l5=new Ladrillos(53.0f,20.0f,63.0f,23.0f);
+	Ladrillos *l5=new Ladrillos(53.0f,23.0f,63.0f,20.0f);
 	l5->SetColor(255,255,255);
 	ladrillos.agregar(l5); 
 
-	Ladrillos *l6=new Ladrillos(65.0f,20.0f,75.0f,23.0f);
+	Ladrillos *l6=new Ladrillos(65.0f,23.0f,75.0f,20.0f);
 	l6->SetColor(255,0,0);
 	ladrillos.agregar(l6); 
 
-	Ladrillos *l7=new Ladrillos(5.0f,30.0f,15.0f,33.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
+	Ladrillos *l7=new Ladrillos(5.0f,40.0f,15.0f,30.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
 	l7->SetColor(255,0,255);								 // SINO LA COLISIÓN Y ELIMINACIÓN DE LADRILLOS NO FUNCIONA
 	ladrillos.agregar(l7); 
 
-	Ladrillos *l8=new Ladrillos(17.0f,30.0f,27.0f,33.0f);
+	Ladrillos *l8=new Ladrillos(17.0f,40.0f,27.0f,30.0f);
 	l8->SetColor(136,0,0);
 	ladrillos.agregar(l8); 
 
-	Ladrillos *l9=new Ladrillos(29.0f,30.0f,39.0f,33.0f);
+	Ladrillos *l9=new Ladrillos(29.0f,40.0f,39.0f,30.0f);
 	l9->SetColor(255,255,0);
 	ladrillos.agregar(l9); 
 
-	Ladrillos *l10=new Ladrillos(41.0f,30.0f,51.0f,33.0f);
+	Ladrillos *l10=new Ladrillos(41.0f,40.0f,51.0f,30.0f);
 	l10->SetColor(0,0,255);
 	ladrillos.agregar(l10); 
 
-	Ladrillos *l11=new Ladrillos(53.0f,30.0f,63.0f,33.0f);
+	Ladrillos *l11=new Ladrillos(53.0f,40.0f,63.0f,30.0f);
 	l11->SetColor(255,255,255);
 	ladrillos.agregar(l11); 
 
-	Ladrillos *l12=new Ladrillos(65.0f,30.0f,75.0f,33.0f);
+	Ladrillos *l12=new Ladrillos(65.0f,40.0f,75.0f,30.0f);
 	l12->SetColor(255,0,100);
 	ladrillos.agregar(l12); 
 }
