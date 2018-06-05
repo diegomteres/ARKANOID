@@ -8,6 +8,5 @@ public:
 	Jugador(void);
 	virtual ~Jugador(void);
 	void vidas(int);
-	
 };
 

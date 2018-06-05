@@ -1,4 +1,5 @@
 #include "Mundo.h"
+#include<iostream>
 #include "glut.h"
 #include "Interaccion.h"
 #include "Barra.h"
@@ -9,6 +10,8 @@
 #include"Bonuses.h"
 #include"ListaLadrillos.h"
 #include"LadrillosBonus.h"
+
+using namespace std;
 
 void Mundo::Dibuja()
 
@@ -51,8 +54,7 @@ void Mundo::Dibuja()
 	bonuses.dibuja();
 //	amarillo1.Dibuja();
 	player.vidas(player.vida);
-	if(player.vida==0)
-		player.gameover=true;
+
 }
 
 void Mundo::Mover()
@@ -70,6 +72,9 @@ void Mundo::Mover()
 		disparos.destruirDisparo(j);
 		if(player.vida>0)player.vida-=1;
 	}
+
+	if(player.vida==0)
+		player.gameover=true;
 }
 	bool k=false;
 	if((num=Interaccion::rebote(disparos,ladrillos,k))!=-1)
@@ -80,12 +85,10 @@ void Mundo::Mover()
 		bonuses.agregar(b1); 
 		}
 	}
-
 for(int i=0;i<bonuses.numero;i++){
 	if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
 		bonuses.destruirBonus(i);																																	
 }	
-
 }
 
 void Mundo::Inicializa()
@@ -106,7 +109,7 @@ void Mundo::Inicializa()
 
 	LadrillosBonus *l2=new LadrillosBonus(17.0f,23.0f,27.0f,20.0f);
 	ladrillos.agregar(l2); 
-
+/*
 	LadrillosBonus *l3=new LadrillosBonus(29.0f,23.0f,39.0f,20.0f);
 	ladrillos.agregar(l3); 
 
@@ -144,7 +147,7 @@ void Mundo::Inicializa()
 
 	Ladrillos *l12=new Ladrillos(65.0f,40.0f,75.0f,30.0f);
 	l12->SetColor(255,0,100);
-	ladrillos.agregar(l12); 
+	ladrillos.agregar(l12); */
 }
 
 

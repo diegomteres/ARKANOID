@@ -9,7 +9,6 @@ public:
 	~Coordinador(void);
 
 	void Tecla(unsigned char key);
-//	void tecla(unsigned char key);  
 	void teclaEspecial(unsigned char key); 
 	void teclaEspecial2(unsigned char key); 
 	void mueve(void); 

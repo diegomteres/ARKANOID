@@ -13,8 +13,8 @@ ListaLadrillos::~ListaLadrillos(void)
 
 void ListaLadrillos::inicializa()
 {
-	numero=0;
 	for(int i=0;i<MAX_LADRILLOS;i++)lista[i]=0;
+	numero=0;
 }
 
 void ListaLadrillos::dibuja()
@@ -25,7 +25,7 @@ void ListaLadrillos::dibuja()
 
 Ladrillos *ListaLadrillos::operator [](int i)
 {
-	if(i>=numero)
+	if(i>numero)
 		i=numero-1;
 	if(i<0)
 		i=0;

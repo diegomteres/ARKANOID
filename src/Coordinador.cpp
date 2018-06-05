@@ -17,7 +17,12 @@ Coordinador::~Coordinador(void)
 void Coordinador::dibuja() 
 {   
 	if(mundo.player.gameover)
-			estado=GAMEOVER;
+		estado=GAMEOVER;
+	
+//	if((estado==JUEGO)&&(mundo.ladrillos.getNumero()==0))
+//		estado=FIN;
+
+
 	if(estado==INICIO)  
 	{
 		gluLookAt(0, 7.5, 30,  // posicion del ojo  
@@ -33,8 +38,13 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5,7);  
 		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5,6);  
 	}
-	else if(estado==JUEGO)  
+
+	else if(estado==JUEGO){
 		mundo.Dibuja();
+//		if(mundo.ladrillos.getNumero()==0)
+//			estado=FIN;
+	}
+
 	else if(estado==GAMEOVER) 
 	{   
 		gluLookAt(0, 7.5, 30,  // posicion del ojo  
@@ -46,6 +56,7 @@ void Coordinador::dibuja()
 		ETSIDI::printxy("GAMEOVER: Has perdido",-5,10);
 		ETSIDI::printxy("Pulsa -C- para continuar",-5,5); 
 	}  
+
 	else if(estado==FIN) 
 	{ 
 		mundo.Dibuja();
@@ -113,9 +124,10 @@ void Coordinador::teclaEspecial2(unsigned char key)
 
 
 void Coordinador::mueve()
-{  
-	if(estado==JUEGO) 
+{  	
+	if(estado==JUEGO)
 		mundo.Mover(); 
+
 } 
 
 

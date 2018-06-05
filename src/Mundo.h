@@ -2,6 +2,7 @@
 #include "Barra.h"
 #include "Esfera.h"
 #include "Ladrillos.h"
+#include"LadrillosBonus.h"
 #include "Jugador.h"
 #include "ListaLadrillos.h"
 #include "ListaDisparos.h"
