@@ -132,7 +132,7 @@ void Interaccion::rebote(Esfera &e, ListaLadrillos lista)
 		Interaccion::rebote(e,*(lista[i]));
 }
 
-int Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista, bool &k)
+int Interaccion::rebote(ListaDisparos &disparos, ListaLadrillos &lista, bool &k)
 {
 	for(int i=0;i<disparos.numero;i++){
 			for(int j=0;j<lista.getNumero();j++)
@@ -141,7 +141,7 @@ int Interaccion::rebote(ListaDisparos disparos, ListaLadrillos lista, bool &k)
 					lista[j]->golpeado();
 					if(lista[j]->getGolpes()==0){
 					if(lista[j]->daBonus())k=true;
-					lista.eliminar(lista[j]);
+					lista.eliminar(j);
 					return i;}
 				}
 	}

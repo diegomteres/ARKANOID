@@ -11,24 +11,28 @@
 
 class Mundo
 {
+	int num;
+	int nivel;
 public:
 	Bordes bordes;
 	Pared fin;
-//	Bonus bonus;
 	Bonuses bonuses;
-//	Esfera esfera;
 	Barra deslizante;
 	ListaLadrillos ladrillos;
 	ListaDisparos disparos;
 	Jugador player;
-	int num;
 	friend class Interaccion;
+	bool end;
 
+
+	Mundo(){nivel=1; end=false;}
 	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void teclaEspecial2(unsigned char key);
 	void Dibuja();
 	void Mover();
 	void Inicializa();
+	void pasaNivel(){nivel++;}
+	void setNivel(int i){nivel=i;}
 	void gameover();
 };

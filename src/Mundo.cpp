@@ -10,8 +10,11 @@
 #include"Bonuses.h"
 #include"ListaLadrillos.h"
 #include"LadrillosBonus.h"
+#include <fstream>
+#define MAX 30
 
 using namespace std;
+
 
 void Mundo::Dibuja()
 
@@ -61,7 +64,6 @@ void Mundo::Mover()
 {
 	bonuses.mueve(0.25f);
 	disparos.mueve(0.025f);
-//	esfera.Mover(0.025f);
 	deslizante.Mover(0.025f);
 	Interaccion::rebote(disparos, bordes);
 	Interaccion::rebote(deslizante, bordes);
@@ -85,69 +87,31 @@ void Mundo::Mover()
 		bonuses.agregar(b1); 
 		}
 	}
-for(int i=0;i<bonuses.numero;i++){
-	if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
-		bonuses.destruirBonus(i);																																	
-}	
+	for(int i=0;i<bonuses.numero;i++){
+		if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
+			bonuses.destruirBonus(i);																																	
+	}	
+	if(nivel==3)end=true;
+	if((ladrillos.getNumero()==0)&&(end==false)){
+		nivel++;
+		if(nivel<3)Inicializa();
+	}
+	cout<<nivel;
 }
 
 void Mundo::Inicializa()
 {
-	ladrillos.inicializa();
+
+	ladrillos.inicializa(nivel); 
 	disparos.inicializa();
 	bonuses.inicializa();
 	player.vida=3;
 	player.gameover=false;
+	end=false;
 
 	deslizante.SetColor(255,0,0);
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
 	deslizante.setVel(0.0f,0.0f);
-
-	LadrillosBonus *l1=new LadrillosBonus(5.0f,23.0f,15.0f,20.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
-								  								    // SINO LA COLISIÓN Y ELIMINACIÓN DE LADRILLOS NO FUNCIONA
-	ladrillos.agregar(l1); 
-
-	LadrillosBonus *l2=new LadrillosBonus(17.0f,23.0f,27.0f,20.0f);
-	ladrillos.agregar(l2); 
-/*
-	LadrillosBonus *l3=new LadrillosBonus(29.0f,23.0f,39.0f,20.0f);
-	ladrillos.agregar(l3); 
-
-	Ladrillos *l4=new Ladrillos(41.0f,23.0f,51.0f,20.0f);
-	l4->SetColor(0,0,255);
-	ladrillos.agregar(l4); 
-
-	Ladrillos *l5=new Ladrillos(53.0f,23.0f,63.0f,20.0f);
-	l5->SetColor(255,255,255);
-	ladrillos.agregar(l5); 
-
-	Ladrillos *l6=new Ladrillos(65.0f,23.0f,75.0f,20.0f);
-	l6->SetColor(255,0,0);
-	ladrillos.agregar(l6); 
-
-	Ladrillos *l7=new Ladrillos(5.0f,40.0f,15.0f,30.0f);  // A LA HORA DE CONSTRUIR LOS LADRILLOS EL ARGUMENTO 3>1, ARGUMENTO 4>2 SIEMPRE
-	l7->SetColor(255,0,255);								 // SINO LA COLISIÓN Y ELIMINACIÓN DE LADRILLOS NO FUNCIONA
-	ladrillos.agregar(l7); 
-
-	Ladrillos *l8=new Ladrillos(17.0f,40.0f,27.0f,30.0f);
-	l8->SetColor(136,0,0);
-	ladrillos.agregar(l8); 
-
-	Ladrillos *l9=new Ladrillos(29.0f,40.0f,39.0f,30.0f);
-	l9->SetColor(255,255,0);
-	ladrillos.agregar(l9); 
-
-	Ladrillos *l10=new Ladrillos(41.0f,40.0f,51.0f,30.0f);
-	l10->SetColor(0,0,255);
-	ladrillos.agregar(l10); 
-
-	Ladrillos *l11=new Ladrillos(53.0f,40.0f,63.0f,30.0f);
-	l11->SetColor(255,255,255);
-	ladrillos.agregar(l11); 
-
-	Ladrillos *l12=new Ladrillos(65.0f,40.0f,75.0f,30.0f);
-	l12->SetColor(255,0,100);
-	ladrillos.agregar(l12); */
 }
 
 
@@ -156,10 +120,10 @@ void Mundo::teclaEspecial(unsigned char key)
 		switch(key) 
 		{  
 			case GLUT_KEY_LEFT: 
-				deslizante.setVel (-25.0f, 0.0f);
+				deslizante.setVel (-30.0f, 0.0f);
 					break;  
 			case GLUT_KEY_RIGHT:  
-				deslizante.setVel (25.0f, 0.0f);  
+				deslizante.setVel (30.0f, 0.0f);  
 					break;	
 		}
 } 
@@ -177,11 +141,6 @@ void Mundo::teclaEspecial2(unsigned char key)
 	}
 }
 
-void Mundo::gameover()
-{
-//	fin.Dibuja();
-}
-
 void Mundo::tecla(unsigned char key)
 {
 		switch(key)
@@ -195,9 +154,10 @@ void Mundo::tecla(unsigned char key)
 
 				break;
 			}
-//		case 'r':
-//			Inicializa();
-//			break;
+		case 'r':
+			pasaNivel();
+			Inicializa();
+			break;
 
 	}
 }

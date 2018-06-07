@@ -11,30 +11,6 @@ Barra::~Barra(void)
 {
 
 }
-/*
-void Barra::act_lados()
-{
-	arriba[0].x = posicion.x;
-	arriba[0].y = posicion.y;
-	arriba[1].x = posicion.x + abs(limite2.x-limite1.x);
-	arriba[1].y = posicion.y;
-
-	derecha[0].x = posicion.x + abs(limite2.x-limite1.x);
-	derecha[0].y = limite2.y;
-	derecha[1].x = posicion.x + abs(limite2.x-limite1.x);
-	derecha[1].y = posicion.y;
-
-	abajo[0].x = posicion.x;
-	abajo[0].y = limite2.y;
-	abajo[1].x = posicion.x + abs(limite2.x-limite1.x);
-	abajo[1].y = limite2.y;
-
-	izquierda[0].x = posicion.x;
-	izquierda[0] = limite2.y;
-	izquierda[1] = posicion.x;
-	izquierda[1] = posicion.y;
-}
-*/
 
 void Barra::Dibuja()//CAMBIO
 {

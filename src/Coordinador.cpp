@@ -18,10 +18,8 @@ void Coordinador::dibuja()
 {   
 	if(mundo.player.gameover)
 		estado=GAMEOVER;
-	
-//	if((estado==JUEGO)&&(mundo.ladrillos.getNumero()==0))
-//		estado=FIN;
-
+	if(mundo.end)
+		estado=FIN;
 
 	if(estado==INICIO)  
 	{
@@ -59,26 +57,17 @@ void Coordinador::dibuja()
 
 	else if(estado==FIN) 
 	{ 
-		mundo.Dibuja();
+		gluLookAt(0, 7.5, 30,  // posicion del ojo  
+		   0.0, 7.5, 0.0,      // hacia que punto mira  (0,7.5,0)    
+		   0.0, 1.0, 0.0);
+//		mundo.Dibuja();
+		ETSIDI::setTextColor(1,0,0);  
 		ETSIDI::setFont("fuentes/Bitwise.ttf",16);  
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!",-5,10); 
 		ETSIDI::printxy("Pulsa -C- para continuar",-5,9); 
 	}
 }
-/*
-void Coordinador::tecla(unsigned char key) 
-{
-	if(estado==INICIO)  
-	{   
-		mundo.Inicializa();   
-		estado=JUEGO; 
-	}  
-	else if(estado==JUEGO) 
-	{   
-		mundo.tecla(key);
-	} 
-} 
-*/
+
 void Coordinador::Tecla(unsigned char key) 
 {  
 	if(estado==INICIO)  
@@ -100,12 +89,15 @@ void Coordinador::Tecla(unsigned char key)
 	{  
 		if(key=='c') 
 			estado=INICIO; 
+			mundo.setNivel(1);
 			mundo.Inicializa();
 	}  
 	else if(estado==FIN) 
 	{  
 		if(key=='c') 
-			estado=INICIO;  
+			estado=INICIO; 
+			mundo.setNivel(1);
+			mundo.Inicializa();
 	}
 }
 
