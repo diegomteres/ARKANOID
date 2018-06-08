@@ -8,7 +8,7 @@ public:
 	virtual ~Pared(void);
 	float distancia(Vector2D punto, Vector2D *direccion=0);
 
-	void Dibuja();
+	void dibuja();
 };
 
 

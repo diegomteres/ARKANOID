@@ -48,7 +48,6 @@ void Coordinador::dibuja()
 		gluLookAt(0, 7.5, 30,  // posicion del ojo  
 		   0.0, 7.5, 0.0,      // hacia que punto mira  (0,7.5,0)    
 		   0.0, 1.0, 0.0);
-//		mundo.Dibuja();  
 		ETSIDI::setTextColor(1,0,0);  
 		ETSIDI::setFont("fuentes/Bitwise.ttf",16);   
 		ETSIDI::printxy("GAMEOVER: Has perdido",-5,10);
@@ -60,7 +59,6 @@ void Coordinador::dibuja()
 		gluLookAt(0, 7.5, 30,  // posicion del ojo  
 		   0.0, 7.5, 0.0,      // hacia que punto mira  (0,7.5,0)    
 		   0.0, 1.0, 0.0);
-//		mundo.Dibuja();
 		ETSIDI::setTextColor(1,0,0);  
 		ETSIDI::setFont("fuentes/Bitwise.ttf",16);  
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!",-5,10); 

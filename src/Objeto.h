@@ -12,6 +12,7 @@ public:
 	unsigned char verde;
 
 	Objeto(void);
+	virtual void dibuja(void)=0;
 	virtual ~Objeto(void);
 	void SetPos(float,float);
 	void SetPos(float,float,float,float);

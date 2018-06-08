@@ -12,7 +12,7 @@ Barra::~Barra(void)
 
 }
 
-void Barra::Dibuja()//CAMBIO
+void Barra::dibuja()//CAMBIO
 {
 	//como la barra tiene unas dimensiones de 10x1 , con saber un punto ya vale
 	//Cuando hacemos SetPos en mundo.cpp(inicializa) para la barra tenemos que indicar la esquina superior derecha de la barra.

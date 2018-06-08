@@ -50,10 +50,9 @@ void Mundo::Dibuja()
 
 	//Dibujar
 	ladrillos.dibuja();
-//	esfera.Dibuja();
 	disparos.dibuja();
-	bordes.Dibuja();
-	deslizante.Dibuja();
+	bordes.dibuja();
+	deslizante.dibuja();
 	bonuses.dibuja();
 //	amarillo1.Dibuja();
 	player.vidas(player.vida);
@@ -69,7 +68,7 @@ void Mundo::Mover()
 	Interaccion::rebote(deslizante, bordes);
 	Interaccion::rebote(disparos, deslizante);
 	for(int j=0;j<disparos.numero;j++){
-	if(Interaccion::rebote(*disparos[j], bordes.suelo) == true)
+	if(Interaccion::rebote(*disparos[j], bordes.getSuelo()) == true)
 	{
 		disparos.destruirDisparo(j);
 		if(player.vida>0)player.vida-=1;
@@ -88,7 +87,7 @@ void Mundo::Mover()
 		}
 	}
 	for(int i=0;i<bonuses.numero;i++){
-		if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.suelo)==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
+		if((Interaccion::rebote(*bonuses[i],deslizante,player,bonuses[i]->getTipo(), disparos) == true)||(Interaccion::rebote(*bonuses[i],bordes.getSuelo())==true))		//FUNCIONES PARA DESTRUIR O RECOGER BONUS
 			bonuses.destruirBonus(i);																																	
 	}	
 	if(nivel==3)end=true;

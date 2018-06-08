@@ -21,14 +21,9 @@ Bordes::~Bordes(void)
 {
 }
 
-void Bordes::Dibuja()
+void Bordes::dibuja()
 {
-	pared_izq.Dibuja();
-	techo.Dibuja();
-	pared_dcha.Dibuja();
-}
-//FALTA COMENT WHAT IS THIS?
-Pared Bordes::getSuelo()
-{
-	return suelo;
+	pared_izq.dibuja();
+	techo.dibuja();
+	pared_dcha.dibuja();
 }

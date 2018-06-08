@@ -8,14 +8,13 @@ public:
 
 	Bordes(void);
 	virtual ~Bordes(void);
-	void Dibuja();
-	Pared getSuelo();
+	void dibuja();
+	Pared getSuelo(){return suelo;};
 
 private:
 	Pared techo;
 	Pared pared_izq;
 	Pared pared_dcha;
-	
-public: Pared suelo;
+	Pared suelo;
 };
 

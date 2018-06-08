@@ -9,7 +9,7 @@ public:
 
 	Esfera(void);
 	virtual ~Esfera(void);
-	void Dibuja();
+	void dibuja();
 	void SetRadio(float);
 
 

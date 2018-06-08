@@ -10,7 +10,7 @@ Pared::~Pared(void)
 {
 }
 
-void Pared::Dibuja(void)
+void Pared::dibuja(void)
 {
 	glColor3ub(rojo,verde,azul);
 	glBegin(GL_QUADS);

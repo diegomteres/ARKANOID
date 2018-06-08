@@ -88,7 +88,7 @@ void ListaLadrillos::inicializa(int j)
 void ListaLadrillos::dibuja()
 {
 	for(int i=0;i<numero;i++)
-		lista[i]->Dibuja();
+		lista[i]->dibuja();
 }
 
 Ladrillos *ListaLadrillos::operator [](int i)

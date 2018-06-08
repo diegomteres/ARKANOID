@@ -16,7 +16,7 @@ ListaDisparos::~ListaDisparos()
 void ListaDisparos::dibuja()
 {
 	for(int i=0;i<numero;i++)
-		lista[i]->Dibuja();
+		lista[i]->dibuja();
 }
 
 void ListaDisparos::mueve(float t)

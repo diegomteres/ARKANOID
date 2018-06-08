@@ -6,14 +6,14 @@ Esfera::Esfera(void)
 	SetColor(0,255,0);
 	SetPos(50.0f,5.0f);
 	SetRadio(1.0f);
-	setVel(15.0f,37.5f);
+	setVel(16.0f,37.5f);
 }
 
 Esfera::~Esfera(void)
 {
 }
 
-void Esfera::Dibuja()
+void Esfera::dibuja()
 {
 	glColor3ub(rojo,verde,azul);
 	glTranslatef(posicion.x,posicion.y,0);
