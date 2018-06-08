@@ -100,7 +100,7 @@
     <ClCompile Include="src\Objeto.cpp" />
     <ClCompile Include="src\ObjetoMovil.cpp" />
     <ClCompile Include="src\Pared.cpp" />
-    <ClCompile Include="src\Vector2D.cpp" />
+    <ClCompile Include="src\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Barra.h" />
@@ -119,7 +119,7 @@
     <ClInclude Include="src\Objeto.h" />
     <ClInclude Include="src\ObjetoMovil.h" />
     <ClInclude Include="src\Pared.h" />
-    <ClInclude Include="src\Vector2D.h" />
+    <ClInclude Include="src\Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,8 +4,8 @@
 class ObjetoMovil:public Objeto
 {
 	public:
-	Vector2D velocidad;
-	Vector2D aceleracion;
+	Vector velocidad;
+	Vector aceleracion;
 
 	void Mover(float);
 	void setVel(float, float);

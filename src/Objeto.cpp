@@ -14,7 +14,7 @@ void Objeto::SetPos(float x,float y)
 	posicion.y=y;
 }
 
-Vector2D Objeto::GetPos(void)
+Vector Objeto::GetPos(void)
 {
 	return posicion;
 }

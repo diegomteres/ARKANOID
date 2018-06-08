@@ -28,9 +28,9 @@ void Barra::dibuja()//CAMBIO
     glEnd();
 }
 
-float Barra::distancia(Vector2D punto,int i,Vector2D *direccion)
+float Barra::distancia(Vector punto,int i,Vector *direccion)
 { 
-	Vector2D l1,l2;
+	Vector l1,l2;
 	float *p;
 	p = getLado(i);
 	l1.x = p[0];
@@ -38,10 +38,10 @@ float Barra::distancia(Vector2D punto,int i,Vector2D *direccion)
 	l2.x = p[2];
 	l2.y = p[3];
 		
-	Vector2D u=(punto-l1);
-	Vector2D v=(l2-l1).unitario();
+	Vector u=(punto-l1);
+	Vector v=(l2-l1).unitario();
 	float longitud=(l1-l2).modulo(); 
-	Vector2D dir; 
+	Vector dir; 
 	float valor=u*v; 
 	float distancia=0; 
 

@@ -1,12 +1,12 @@
 #pragma once
-#include "Vector2D.h"
+#include "Vector.h"
 
 class Objeto
 {
 public:
-	Vector2D posicion;
-	Vector2D limite1;  
-	Vector2D limite2;
+	Vector posicion;
+	Vector limite1;  
+	Vector limite2;
 	unsigned char rojo;
 	unsigned char azul;
 	unsigned char verde;
@@ -17,5 +17,5 @@ public:
 	void SetPos(float,float);
 	void SetPos(float,float,float,float);
 	void SetColor(unsigned char, unsigned char, unsigned char);
-	Vector2D GetPos(void);
+	Vector GetPos(void);
 };

@@ -14,6 +14,7 @@
 #define MAX 30
 
 using namespace std;
+using namespace ETSIDI;
 
 
 void Mundo::Dibuja()
@@ -22,6 +23,7 @@ void Mundo::Dibuja()
 	int c=0;
 	char nombre[] = "ARKANOID";
 
+
 	gluLookAt(50.0,50.0,65.0,
 			50.0,50.0,0.0,
 			0.0,1.0,0.0);
@@ -29,15 +31,6 @@ void Mundo::Dibuja()
 		//METER EN UNA CLASE - BACKGROUND 
 	
 	glDisable(GL_LIGHTING);
-	/*
-	glColor3ub(0,0,200);
-	glBegin(GL_QUADS);
-		glVertex2f(0, 0);
-		glVertex2f(100, 0);
-		glVertex2f(100, 100);
-        glVertex2f(0, 100);
-    glEnd();
-	*/
 
 	//Nombre Juego ARKANOID
 	glColor3ub(255,255,255);
@@ -54,9 +47,8 @@ void Mundo::Dibuja()
 	bordes.dibuja();
 	deslizante.dibuja();
 	bonuses.dibuja();
-//	amarillo1.Dibuja();
-	player.vidas(player.vida);
 
+	player.vidas(player.vida);
 }
 
 void Mundo::Mover()
@@ -95,7 +87,6 @@ void Mundo::Mover()
 		nivel++;
 		if(nivel<3)Inicializa();
 	}
-	cout<<nivel;
 }
 
 void Mundo::Inicializa()
@@ -147,7 +138,7 @@ void Mundo::tecla(unsigned char key)
 		case ' ':
 			{
  				Esfera* d=new Esfera();
-				Vector2D pos=deslizante.GetPos();
+				Vector pos=deslizante.GetPos();
 				d->SetPos(pos.x + 1,pos.y + 1);
 				disparos.agregar(d);
 

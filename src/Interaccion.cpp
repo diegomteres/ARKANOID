@@ -18,11 +18,11 @@ Interaccion::~Interaccion()
 
 bool Interaccion:: rebote(Esfera &e,  Pared p) //ESFERA PAREDES
 {
-	Vector2D dir; 
+	Vector dir; 
 	float dif = p.distancia(e.posicion, &dir) - e.radio;  
 	if (dif <= 0.0f) 
 	{
-		Vector2D v_inicial = e.velocidad; 
+		Vector v_inicial = e.velocidad; 
  		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
 		e.posicion = e.posicion - dir * dif; 
 		return true; 
@@ -61,7 +61,7 @@ void Interaccion::rebote(Barra &b, Bordes c) //BARRA PAREDES		//CORREGIDA YA PAR
 
 bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 {
-	Vector2D dir;
+	Vector dir;
 	float lm,lM;
 	int eje; //0-horizontal, 1-vertical
 	for(int i=0;i<4;i++)
@@ -79,7 +79,7 @@ bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 		lM = b.posicion.x + (b.limite2.x-b.limite1.x);
 		if((e.posicion.x>=lm) && (e.posicion.x<=lM) && (dif<=0.0f))
 		{
-		Vector2D v_inicial = e.velocidad; 
+		Vector v_inicial = e.velocidad; 
 		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
 		e.posicion = e.posicion - dir * dif; 
 		return true;
@@ -93,7 +93,7 @@ bool Interaccion::rebote(Esfera &e, Barra &b)	//ESFERA BARRA****
 		lM = b.posicion.y;
 		if((e.posicion.y>=lm) && (e.posicion.y<=lM) && (dif<=0.0f))
 		{
-		Vector2D v_inicial = e.velocidad; 
+		Vector v_inicial = e.velocidad; 
 		e.velocidad = v_inicial - dir * 2.0*(v_inicial*dir); 
 		e.posicion = e.posicion - dir * dif; 
 		return true;
@@ -109,9 +109,9 @@ bool Interaccion::rebote(Esfera &e, Barra &b, Jugador &player, int tipo, ListaDi
 	if(Interaccion::rebote((Esfera)e,b)==true)
 	{
 		switch (tipo){
-		case 0/*VIDA*/:  player.vida+=1; cout<<"¡Has obtenido una vida!"<<endl; return true;
-		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1;  cout<<"¡Has obtenido un disparo adicional!"<<endl; return true;
-		case 2/*BARRA*/:  b.limite2.x+=5; cout<<"¡Tu barra ha sido mejorada!"<<endl;	return true;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
+		case 0/*VIDA*/:  player.vida+=1; cout<<"Has obtenido una vida!"<<endl; return true;
+		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1;  cout<<"Has obtenido un disparo adicional!"<<endl; return true;
+		case 2/*BARRA*/:  b.limite2.x+=5; cout<<"Tu barra ha sido mejorada!"<<endl;	return true;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
 		}
 	}
 	return false;

@@ -21,9 +21,6 @@
     <ClCompile Include="src\Arkanoid.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector2D.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="src\Pared.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -69,12 +66,12 @@
     <ClCompile Include="src\LadrillosBonus.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="src\Vector.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mundo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Vector2D.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\Pared.h">
@@ -120,6 +117,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\LadrillosBonus.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vector.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

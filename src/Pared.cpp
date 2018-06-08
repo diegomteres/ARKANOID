@@ -21,12 +21,12 @@ void Pared::dibuja(void)
     glEnd();
 }
 
-float Pared::distancia(Vector2D punto, Vector2D *direccion)
+float Pared::distancia(Vector punto, Vector *direccion)
 {  
-	Vector2D u=(punto-limite1);
-	Vector2D v=(limite2-limite1).unitario();
+	Vector u=(punto-limite1);
+	Vector v=(limite2-limite1).unitario();
 	float longitud=(limite1-limite2).modulo(); 
-	Vector2D dir; 
+	Vector dir; 
 	float valor=u*v; 
 	float distancia=0; 
 
