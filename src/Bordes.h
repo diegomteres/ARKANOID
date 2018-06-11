@@ -1,5 +1,7 @@
 #pragma once
 #include "Pared.h"
+//#include "glut.h"
+//#include "ETSIDI.h"
 
 class Bordes
 {

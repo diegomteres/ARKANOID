@@ -1,5 +1,7 @@
 #include "Mundo.h"
 #include<iostream>
+#include <stdlib.h>
+#include<time.h>
 #include "glut.h"
 #include "Interaccion.h"
 #include "Barra.h"
@@ -7,6 +9,9 @@
 #include"ListaLadrillos.h"
 #include"Esfera.h"
 #include "Bonus.h"
+#include"BonusBarra.h"
+#include"BonusVida.h"
+#include"BonusDisparo.h"
 #include"Bonuses.h"
 #include"ListaLadrillos.h"
 #include"LadrillosBonus.h"
@@ -73,7 +78,15 @@ void Mundo::Mover()
 	if((num=Interaccion::rebote(disparos,ladrillos,k))!=-1)
 	{
 		if(k==true){
-		Bonus *b1=new Bonus();
+		srand(time(NULL));
+		int i=rand()%3;
+		Bonus *b1;
+		switch (i){
+		case 0:	b1=new BonusVida(); break;
+		case 1: b1=new BonusDisparo(); break;	
+		case 2: b1=new BonusBarra(); break;
+	}
+//		Bonus *b1=new Bonus();
 		b1->SetPos(disparos[num]->posicion.x, disparos[num]->posicion.y);
 		bonuses.agregar(b1); 
 		}
@@ -99,7 +112,7 @@ void Mundo::Inicializa()
 	player.gameover=false;
 	end=false;
 
-	deslizante.SetColor(255,0,0);
+	deslizante.SetColor(255,150,0);
 	deslizante.SetPos(45.0f,2.0f,55.0f,1.0f);	//Unico, cambio setpos de x e y , no limites
 	deslizante.setVel(0.0f,0.0f);
 }

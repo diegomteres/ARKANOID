@@ -12,6 +12,6 @@ public:
 
 	int getGolpes(){return golpes;}
 	void golpeado(){golpes--;}
-	virtual bool daBonus(){return false;}
+	virtual bool daBonus(){return false;}		//polimorfismo
 };
 

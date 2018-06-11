@@ -54,7 +54,7 @@ int main(int argc,char* argv[])
 
 	//Registrar los callbacks
 	glutDisplayFunc(OnDraw);
-	glutTimerFunc(5,OnTimer,0);		//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
+	glutTimerFunc(25,OnTimer,0);		//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	
 	//Keyboard
 	glutKeyboardFunc(OnKeyboardDown);

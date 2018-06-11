@@ -17,6 +17,6 @@ public:
 	Barra(void);
 	virtual ~Barra(void);
 
-	void dibuja(void);
+	virtual void dibuja(void);
 };
 

@@ -11,7 +11,7 @@ typedef struct
 {
 	float pos_lad[4];
 	int col_lad[3];
-//	int dis_lad;
+	int tipo_lad;
 }NIVEL; 
 
 ListaLadrillos::ListaLadrillos(void)
@@ -25,7 +25,7 @@ ListaLadrillos::~ListaLadrillos(void)
 
 void ListaLadrillos::inicializa(int j)
 {
-	for(int i=0;i<MAX_LADRILLOS;i++)lista[i]=0;
+		for(int i=0;i<MAX_LADRILLOS;i++)lista[i]=0;
 	numero=0;
 
 	ifstream f;
@@ -42,20 +42,24 @@ void ListaLadrillos::inicializa(int j)
 	{
 	f>>lad_nivel[i].pos_lad[0]>>lad_nivel[i].pos_lad[1]>>lad_nivel[i].pos_lad[2]>>lad_nivel[i].pos_lad[3];
 	f>>lad_nivel[i].col_lad[0]>>lad_nivel[i].col_lad[1]>>lad_nivel[i].col_lad[2];
-//	cout<<lad_nivel[i].pos_lad[0]<<lad_nivel[i].pos_lad[1]<<lad_nivel[i].pos_lad[2]<<lad_nivel[i].pos_lad[3]<<endl;
-//	cout<<lad_nivel[i].col_lad[0]<<lad_nivel[i].col_lad[1]<<lad_nivel[i].col_lad[2]<<endl;
+	f>>lad_nivel[i].tipo_lad;
 	i++;
 	}
 	f.close();
 	n_de_ladrillos=i;
 	for(int j=0;j<i;j++)
 	{
+		if(lad_nivel[j].tipo_lad==2)
+		{
 		lb[j]=new LadrillosBonus(lad_nivel[j].pos_lad[0],lad_nivel[j].pos_lad[1],lad_nivel[j].pos_lad[2],lad_nivel[j].pos_lad[3]);
 		agregar(lb[j]);
-		j++;
+		}
+		if(lad_nivel[j].tipo_lad==1)
+		{
 		l[j]=new Ladrillos(lad_nivel[j].pos_lad[0],lad_nivel[j].pos_lad[1],lad_nivel[j].pos_lad[2],lad_nivel[j].pos_lad[3]);
 		l[j]->SetColor(lad_nivel[j].col_lad[0],lad_nivel[j].col_lad[1],lad_nivel[j].col_lad[2]);
 		agregar(l[j]);
+		}
 	}
 	}
 	if(j==2)
@@ -66,23 +70,26 @@ void ListaLadrillos::inicializa(int j)
 	{
 	f>>lad_nivel[i].pos_lad[0]>>lad_nivel[i].pos_lad[1]>>lad_nivel[i].pos_lad[2]>>lad_nivel[i].pos_lad[3];
 	f>>lad_nivel[i].col_lad[0]>>lad_nivel[i].col_lad[1]>>lad_nivel[i].col_lad[2];
-//	cout<<lad_nivel[i].pos_lad[0]<<lad_nivel[i].pos_lad[1]<<lad_nivel[i].pos_lad[2]<<lad_nivel[i].pos_lad[3]<<endl;
-//	cout<<lad_nivel[i].col_lad[0]<<lad_nivel[i].col_lad[1]<<lad_nivel[i].col_lad[2]<<endl;
+	f>>lad_nivel[i].tipo_lad;
 	i++;
 	}
 	f.close();
 	n_de_ladrillos=i;
 	for(int j=0;j<i;j++)
 	{
+		if(lad_nivel[j].tipo_lad==2)
+		{
 		lb[j]=new LadrillosBonus(lad_nivel[j].pos_lad[0],lad_nivel[j].pos_lad[1],lad_nivel[j].pos_lad[2],lad_nivel[j].pos_lad[3]);
 		agregar(lb[j]);
-		j++;
+		}
+		if(lad_nivel[j].tipo_lad==1)
+		{
 		l[j]=new Ladrillos(lad_nivel[j].pos_lad[0],lad_nivel[j].pos_lad[1],lad_nivel[j].pos_lad[2],lad_nivel[j].pos_lad[3]);
-		l[j]->SetColor(lad_nivel[j].col_lad[0],lad_nivel[j].col_lad[1],lad_nivel[j].col_lad[3]);
+		l[j]->SetColor(lad_nivel[j].col_lad[0],lad_nivel[j].col_lad[1],lad_nivel[j].col_lad[2]);
 		agregar(l[j]);
+		}
 	}
 	}
-
 }
 
 void ListaLadrillos::dibuja()
