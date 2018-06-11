@@ -1,12 +1,13 @@
 #include "BonusVida.h"
 
 
-BonusVida::BonusVida():Bonus()
+BonusVida::BonusVida():sprite("imagenes/Corazon.png")
 {
-	*sprite=("imagenes/Corazon.png");
-	sprite->setPos(posicion.x-radio,posicion.y-radio);
-	sprite->setCenter(posicion.x,posicion.y);
-	sprite->setSize(5,5);
+	SetRadio(1.5f);
+	setVel(0.0f,-1.0f);
+	sprite.setPos(posicion.x-radio,posicion.y-radio);
+	sprite.setCenter(posicion.x,posicion.y);
+	sprite.setSize(5,5);
 }
 
 
@@ -14,8 +15,19 @@ BonusVida::~BonusVida(void)
 {
 }
 
-void BonusVida::imprime()
+ostream& BonusVida::imprime(ostream &o)
 {
-	Bonus::imprime();
-	cout<<"Tienes una vida mas!"<<endl;
+	Bonus::imprime(o);
+	o<<"Tienes una vida mas!"<<endl;
+	return o;
 }
+
+void BonusVida::dibuja()
+{
+	glPushMatrix();
+	glTranslatef(posicion.x,posicion.y,0);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	sprite.draw();
+	glPopMatrix();
+}
+

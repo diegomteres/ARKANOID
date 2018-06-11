@@ -7,10 +7,12 @@ using ETSIDI::Sprite;
 
 class BonusVida:public Bonus
 {
+	Sprite sprite;
 public:
 	BonusVida(void);
 	~BonusVida(void);
 
-	void imprime();
+	ostream& imprime(ostream& o);
+	void dibuja();
 };
 

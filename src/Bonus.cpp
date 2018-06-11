@@ -6,8 +6,8 @@
 Bonus::Bonus(void)
 {
 //	char *f1="imagenes/Corazon.png", *f2="imagenes/Disparo.png", *f3="imagenes/Barra.png", *f4;
-	SetRadio(1.5f);
-	setVel(0.0f,-1.0f);
+//	SetRadio(1.5f);
+//	setVel(0.0f,-1.0f);
 	
 //	srand(time(NULL));
 //	int i=rand()%3; //AL HACER EL MÓDULO OBTENEMOS SIEMPRE UN NÚMERO ENTRE 0 Y 2, GENERA ALEATORIAMENTE EL TIPO DE BONUS
@@ -32,11 +32,7 @@ Bonus::~Bonus(void)
 
 void Bonus::dibuja() 
 {
-	glPushMatrix();
-	glTranslatef(posicion.x,posicion.y,0);
-	glColor3f(1.0f, 1.0f, 1.0f);
-	sprite->draw();
-	glPopMatrix();
+
 }
 
 int Bonus::getTipo(){

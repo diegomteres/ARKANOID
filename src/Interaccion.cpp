@@ -113,9 +113,9 @@ bool Interaccion::rebote(Bonus &e, Barra &b, Jugador &player, int tipo, ListaDis
 	if(Interaccion::rebote(e,b)==true)
 	{
 		switch (e.getTipo()){
-		case 0/*VIDA*/:  player.vida+=1; e.imprime(); /*cout<<"Has obtenido una vida!"<<endl*/; return true;
-		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1; e.imprime(); /*cout<<"Has obtenido un disparo adicional!"<<endl*/; return true;
-		case 2/*BARRA*/:  b.limite2.x+=5; e.imprime(); /*cout<<"Tu barra ha sido mejorada!"<<endl*/;	return true;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
+		case 0/*VIDA*/:  player.vida+=1; e.imprime(cout); /*cout<<"Has obtenido una vida!"<<endl*/; return true;
+		case 1/*DISPARO*/: if(disparos.max<MAX_DISPAROS)disparos.max+=1; e.imprime(cout); /*cout<<"Has obtenido un disparo adicional!"<<endl*/; return true;
+		case 2/*BARRA*/:  b.limite2.x+=5; e.imprime(cout); /*cout<<"Tu barra ha sido mejorada!"<<endl*/;	return true;		//CUANDO ESTÉ HECHA LA COLISIÓN CON LA BARRA AQUÍ SE DEBERÁ DEFINIR CÓMO VARÍA ÉSTA AL RECOGER EL BONUS (alargarse por ejemplo)
 		}
 	}
 	return false;

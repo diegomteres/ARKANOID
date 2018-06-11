@@ -10,7 +10,6 @@ class Bonus:public Esfera
 protected:
 	enum Tipo {VIDA=0, DISPARO=1, BARRA=2};  
 	Tipo tipo;
-	Sprite *sprite;
 
 public:
 	friend class Interaccion;
@@ -18,7 +17,7 @@ public:
 	virtual int getTipo();
 	Bonus(void);
 	~Bonus(void);
-	void dibuja(void);
-	virtual void imprime(){cout<<"bonus";};
+	virtual void dibuja(void)=0;
+	virtual ostream& imprime(ostream& o){o<<"bonus"; return o;}
 };
 

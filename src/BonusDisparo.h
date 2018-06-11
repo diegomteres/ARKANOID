@@ -8,10 +8,12 @@ using ETSIDI::Sprite;
 
 class BonusDisparo:public Bonus
 {
+	Sprite sprite;
 public:
 	BonusDisparo(void);
 	~BonusDisparo(void);
 
-	void imprime();
+	ostream& imprime(ostream& o);
+	void dibuja();
 };
 
