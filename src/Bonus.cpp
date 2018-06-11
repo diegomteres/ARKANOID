@@ -32,9 +32,10 @@ Bonus::~Bonus(void)
 
 void Bonus::dibuja() 
 {
-
 }
 
-int Bonus::getTipo(){
-	return tipo;
+ostream& Bonus::imprime(ostream& o)
+{
+	o<<"Has recogido un bonus: ";
+	return o;
 }

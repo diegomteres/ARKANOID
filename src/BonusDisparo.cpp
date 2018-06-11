@@ -18,7 +18,7 @@ BonusDisparo::~BonusDisparo(void)
 ostream& BonusDisparo::imprime(ostream & o)
 {
 	Bonus::imprime(o);
-	cout<<"Has obtenido un disparo adicional!"<<endl;
+	o<<"Tienes un disparo adicional!"<<endl;
 	return o;
 }
 

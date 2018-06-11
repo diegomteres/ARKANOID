@@ -13,6 +13,7 @@ public:
 	BonusBarra(void);
 	~BonusBarra(void);
 
+	int getTipo(){return 2;}
 	ostream& imprime(ostream & o);
 	void dibuja();
 };

@@ -12,7 +12,8 @@ class BonusDisparo:public Bonus
 public:
 	BonusDisparo(void);
 	~BonusDisparo(void);
-
+	
+	int getTipo(){return 1;}
 	ostream& imprime(ostream& o);
 	void dibuja();
 };

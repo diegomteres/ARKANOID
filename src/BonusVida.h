@@ -12,6 +12,7 @@ public:
 	BonusVida(void);
 	~BonusVida(void);
 
+	int getTipo(){return 0;}
 	ostream& imprime(ostream& o);
 	void dibuja();
 };

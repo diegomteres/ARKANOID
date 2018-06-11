@@ -1,8 +1,11 @@
 #pragma once
 
-#define MAX_BONUS 1
+#define MAX_BONUS 3
 #include "Bonus.h"
 #include "Barra.h"
+#include"BonusBarra.h"
+#include"BonusDisparo.h"
+#include"BonusVida.h"
 
 class Bonuses 
 {

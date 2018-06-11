@@ -23,7 +23,7 @@ void Jugador::vidas(int v)
 	int a=0;
 	char valor=v+'0';
 
-	glColor3ub(255,50,50);
+	glColor3ub(0,0,0);
 	for(int i=0;vidas[i]!='\0';i++)
 	{
 	glRasterPos3i(4+a,95,1);

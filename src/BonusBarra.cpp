@@ -18,7 +18,7 @@ BonusBarra::~BonusBarra(void)
 ostream& BonusBarra::imprime(ostream & o)
 {
 	Bonus::imprime(o);
-	cout<<"Tu barra ha sido mejorada!"<<endl;
+	o<<"Tu barra ha sido mejorada!"<<endl;
 	return o;
 }
 

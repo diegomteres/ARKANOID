@@ -85,6 +85,7 @@ void Mundo::Mover()
 		case 0:	b1=new BonusVida(); break;
 		case 1: b1=new BonusDisparo(); break;	
 		case 2: b1=new BonusBarra(); break;
+		default: break;
 	}
 //		Bonus *b1=new Bonus();
 		b1->SetPos(disparos[num]->posicion.x, disparos[num]->posicion.y);
